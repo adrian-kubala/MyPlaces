@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Or-zg-gAr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Or-zg-gAr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--SEND MESSAGE-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PlacesViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlacesViewController" customModule="NearbyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,11 +30,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEARBY PLACES:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2O-Sf-GcN">
                                         <rect key="frame" x="10" y="0.0" width="365" height="46"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="n2O-Sf-GcN" secondAttribute="trailing" id="1X6-8W-rH3"/>
                                     <constraint firstItem="n2O-Sf-GcN" firstAttribute="leading" secondItem="k5X-Qf-VDx" secondAttribute="leading" constant="10" id="J10-T8-VB5"/>
@@ -39,12 +43,12 @@
                                     <constraint firstItem="n2O-Sf-GcN" firstAttribute="top" secondItem="k5X-Qf-VDx" secondAttribute="top" id="pER-Tk-aIw"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wue-zY-o69" customClass="CustomMapView" customModule="Places" customModuleProvider="target">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wue-zY-o69" customClass="CustomMapView" customModule="NearbyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="103" width="375" height="200"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-QF-ahZ">
                                 <rect key="frame" x="10" y="270" width="25" height="25"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="6JI-2d-RTc"/>
                                     <constraint firstAttribute="width" constant="25" id="tAE-BR-U8M"/>
@@ -54,17 +58,17 @@
                                     <action selector="centerMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FUO-8r-CGy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-Of-Vd5" customClass="CustomButton" customModule="Places" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-Of-Vd5" customClass="CustomButton" customModule="NearbyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="303" width="375" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="7Uq-xg-quv"/>
                                     <constraint firstAttribute="height" constant="53" id="c3J-J2-wl5"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="28" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="SEND">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -77,27 +81,27 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-dh-IDV">
                                 <rect key="frame" x="0.0" y="415" width="375" height="252"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="252" id="IfV-1K-hZT"/>
                                 </constraints>
                                 <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="RV9-W1-ZoG" userLabel="Blank View">
                                     <rect key="frame" x="0.0" y="78" width="375" height="6"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeView" rowHeight="50" id="yNA-yO-VkB" customClass="PlaceView" customModule="Places" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeView" rowHeight="50" id="yNA-yO-VkB" customClass="PlaceView" customModule="NearbyPlaces" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNA-yO-VkB" id="u2L-8l-fkg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So8-85-PNk">
                                                     <rect key="frame" x="56" y="8" width="309" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2fK-U9-DmG">
@@ -110,7 +114,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Uf-iyF">
                                                     <rect key="frame" x="56" y="26" width="309" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -140,13 +144,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oou-t2-KuA" customClass="CustomSearchBar" customModule="Places" customModuleProvider="target">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oou-t2-KuA" customClass="CustomSearchBar" customModule="NearbyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="375" height="44"/>
-                                <color key="barTintColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.82352941180000006" green="0.98823529409999999" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.82352941180000006" green="0.98823529409999999" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="k5X-Qf-VDx" firstAttribute="top" secondItem="qVQ-Of-Vd5" secondAttribute="bottom" constant="-5" id="0IR-mu-OYW"/>
                             <constraint firstItem="k5X-Qf-VDx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5ng-Wn-NjQ"/>
@@ -178,8 +182,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="SEND MESSAGE" id="rCD-Mo-kGN" customClass="CustomNavigationitem" customModule="Places" customModuleProvider="target"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationItem key="navigationItem" title="SEND MESSAGE" id="rCD-Mo-kGN" customClass="CustomNavigationitem" customModule="NearbyPlaces" customModuleProvider="target"/>
                     <connections>
                         <outlet property="centerLocationButton" destination="Lvh-QF-ahZ" id="apN-6i-DKT"/>
                         <outlet property="labelView" destination="k5X-Qf-VDx" id="9oH-7e-B4D"/>
@@ -206,7 +209,7 @@
         <!--Chat View Controller-->
         <scene sceneID="LbR-6e-P52">
             <objects>
-                <viewController id="x5Q-fJ-pGt" customClass="ChatViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x5Q-fJ-pGt" customClass="ChatViewController" customModule="NearbyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5LR-Ga-fgs"/>
                         <viewControllerLayoutGuide type="bottom" id="mWW-vc-AFo"/>
@@ -225,7 +228,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="tVe-a6-bUk" secondAttribute="bottom" constant="22" id="7SG-BQ-X23"/>
                                     <constraint firstItem="tVe-a6-bUk" firstAttribute="top" secondItem="hfQ-vP-SvL" secondAttribute="top" constant="411" id="GPw-hr-urI"/>
@@ -241,7 +244,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.82352941180000006" green="0.98823529409999999" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.82352941180000006" green="0.98823529409999999" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hfQ-vP-SvL" secondAttribute="trailing" id="8mL-8L-mTl"/>
                             <constraint firstItem="hfQ-vP-SvL" firstAttribute="top" secondItem="5LR-Ga-fgs" secondAttribute="bottom" id="Bpt-83-zpb"/>
@@ -262,10 +265,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="Places" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="NearbyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.82352941176470584" green="0.9882352941176471" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.82352941176470584" green="0.9882352941176471" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A00521F1E773F68002B71F3 /* Koszalin, Poland.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */; };
 		3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */; };
 		3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */; };
 		3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Koszalin, Poland.gpx"; sourceTree = "<group>"; };
 		3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A00521D1E773F43002B71F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */,
+				3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */,
+				3A8C0E9F1D8A6D1D00F538B0 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		3A0887B41D91334300F99385 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +123,8 @@
 				3AF51AAA1D9C294E0039D426 /* Extensions */,
 				3A8C0E931D8A6D1C00F538B0 /* AppDelegate.swift */,
 				3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */,
-				3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */,
 				3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */,
-				3A8C0E9F1D8A6D1D00F538B0 /* Info.plist */,
+				3A00521D1E773F43002B71F3 /* Resources */,
 			);
 			path = NearbyPlaces;
 			sourceTree = "<group>";
@@ -225,6 +236,7 @@
 			files = (
 				3A8C0E9E1D8A6D1D00F538B0 /* LaunchScreen.storyboard in Resources */,
 				3A8C0E9B1D8A6D1D00F538B0 /* Assets.xcassets in Resources */,
+				3A00521F1E773F68002B71F3 /* Koszalin, Poland.gpx in Resources */,
 				3A8C0E991D8A6D1D00F538B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
