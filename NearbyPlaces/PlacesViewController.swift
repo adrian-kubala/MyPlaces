@@ -100,13 +100,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func setupGeocoder(_ location: CLLocation) {
     let geocoder = CLGeocoder()
-    let completionHandler: CLGeocodeCompletionHandler = { (placemarks, error) -> Void in
+    geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
       if let placemark = placemarks?.first {
         self.searchBar.updateSearchText(with: placemark)
         self.placemark = placemark
       }
     }
-    geocoder.reverseGeocodeLocation(location, completionHandler: completionHandler)
   }
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
