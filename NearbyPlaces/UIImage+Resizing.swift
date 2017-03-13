@@ -1,5 +1,5 @@
 //
-//  UIImage+cropToBounds.swift
+//  UIImage+Resizing.swift
 //  Places
 //
 //  Created by Adrian on 29.09.2016.
@@ -39,5 +39,17 @@ extension UIImage {
     let newImage = UIImage(cgImage: imageRef, scale: scale, orientation: imageOrientation)
     
     return newImage
+  }
+  
+  func scaleImage(width: Double) -> UIImage {
+    let newWidth = CGFloat(width)
+    let scale = newWidth / size.width
+    let newHeight = size.height * scale
+    UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+    draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return newImage!
   }
 }

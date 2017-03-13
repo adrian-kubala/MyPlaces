@@ -23,8 +23,7 @@
 		3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */; };
 		3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DF1D9851F8007E4BA7 /* PlaceView.swift */; };
 		3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */; };
-		3AFF213F1D9DB662005A3AA0 /* UIImage+cropToBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213E1D9DB662005A3AA0 /* UIImage+cropToBounds.swift */; };
-		3AFF21411D9DB790005A3AA0 /* UIImage+scaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF21401D9DB790005A3AA0 /* UIImage+scaleImage.swift */; };
+		3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */; };
 		3AFF21431D9DC407005A3AA0 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */; };
 		A6612042F63430072BB7083E /* Pods_NearbyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */; };
 /* End PBXBuildFile section */
@@ -49,8 +48,7 @@
 		3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3AF807DF1D9851F8007E4BA7 /* PlaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationitem.swift; sourceTree = "<group>"; };
-		3AFF213E1D9DB662005A3AA0 /* UIImage+cropToBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+cropToBounds.swift"; sourceTree = "<group>"; };
-		3AFF21401D9DB790005A3AA0 /* UIImage+scaleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+scaleImage.swift"; sourceTree = "<group>"; };
+		3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resizing.swift"; sourceTree = "<group>"; };
 		3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
 		3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,8 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */,
-				3AFF213E1D9DB662005A3AA0 /* UIImage+cropToBounds.swift */,
-				3AFF21401D9DB790005A3AA0 /* UIImage+scaleImage.swift */,
+				3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -307,7 +304,7 @@
 				3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */,
 				3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */,
 				3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */,
-				3AFF213F1D9DB662005A3AA0 /* UIImage+cropToBounds.swift in Sources */,
+				3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */,
 				3AFF21431D9DC407005A3AA0 /* CustomMapView.swift in Sources */,
 				3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */,
 				3A72F5A81D8A6FCD00BA2F16 /* Place.swift in Sources */,
@@ -316,7 +313,6 @@
 				3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */,
 				3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */,
 				3A8C0E941D8A6D1C00F538B0 /* AppDelegate.swift in Sources */,
-				3AFF21411D9DB790005A3AA0 /* UIImage+scaleImage.swift in Sources */,
 				3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
