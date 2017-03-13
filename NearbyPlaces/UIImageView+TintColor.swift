@@ -1,5 +1,5 @@
 //
-//  UIImageView+tintColor.swift
+//  UIImageView+TintColor.swift
 //  Places
 //
 //  Created by Adrian on 28.09.2016.

@@ -18,7 +18,7 @@
 		3A8C0E991D8A6D1D00F538B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */; };
 		3A8C0E9B1D8A6D1D00F538B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */; };
 		3A8C0E9E1D8A6D1D00F538B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */; };
-		3AF51AAC1D9C297A0039D426 /* UIImageView+tintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAB1D9C297A0039D426 /* UIImageView+tintColor.swift */; };
+		3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */; };
 		3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAF1D9C45F60039D426 /* CustomView.swift */; };
 		3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */; };
 		3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DF1D9851F8007E4BA7 /* PlaceView.swift */; };
@@ -44,7 +44,7 @@
 		3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A8C0E9D1D8A6D1D00F538B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8C0E9F1D8A6D1D00F538B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AF51AAB1D9C297A0039D426 /* UIImageView+tintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+tintColor.swift"; sourceTree = "<group>"; };
+		3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+TintColor.swift"; sourceTree = "<group>"; };
 		3AF51AAF1D9C45F60039D426 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3AF807DF1D9851F8007E4BA7 /* PlaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
@@ -77,6 +77,15 @@
 				3A8C0E9F1D8A6D1D00F538B0 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		3A0052201E774023002B71F3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */,
+				3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		3A0887B41D91334300F99385 /* Model */ = {
@@ -117,13 +126,12 @@
 		3A8C0E921D8A6D1C00F538B0 /* NearbyPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				3A8C0E931D8A6D1C00F538B0 /* AppDelegate.swift */,
 				3A0887B41D91334300F99385 /* Model */,
 				3AF807DE1D9851CA007E4BA7 /* View */,
 				3A0887B51D91335300F99385 /* ViewController */,
 				3AF51AAA1D9C294E0039D426 /* Extensions */,
-				3A8C0E931D8A6D1C00F538B0 /* AppDelegate.swift */,
-				3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */,
-				3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */,
+				3A0052201E774023002B71F3 /* Storyboards */,
 				3A00521D1E773F43002B71F3 /* Resources */,
 			);
 			path = NearbyPlaces;
@@ -132,7 +140,7 @@
 		3AF51AAA1D9C294E0039D426 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3AF51AAB1D9C297A0039D426 /* UIImageView+tintColor.swift */,
+				3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */,
 				3AFF213E1D9DB662005A3AA0 /* UIImage+cropToBounds.swift */,
 				3AFF21401D9DB790005A3AA0 /* UIImage+scaleImage.swift */,
 			);
@@ -309,7 +317,7 @@
 				3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */,
 				3A8C0E941D8A6D1C00F538B0 /* AppDelegate.swift in Sources */,
 				3AFF21411D9DB790005A3AA0 /* UIImage+scaleImage.swift in Sources */,
-				3AF51AAC1D9C297A0039D426 /* UIImageView+tintColor.swift in Sources */,
+				3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
