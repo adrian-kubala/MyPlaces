@@ -13,9 +13,9 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   @IBOutlet weak var searchBar: CustomSearchBar!
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
-  @IBOutlet weak var labelView: UIView!
-  @IBOutlet weak var placesViewHeight: NSLayoutConstraint!
   @IBOutlet weak var centerLocationButton: UIButton!
+  
+  @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
   var locationManager = CLLocationManager()
   var placesClient = GMSPlacesClient()
@@ -389,11 +389,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func resizeTable() {
-    let frameHeight = view.frame.maxY
     if searchBar.isActive() {
-      placesViewHeight.constant = frameHeight - searchBar.frame.maxY
+      placesViewTopConstraint.constant -= placesView.frame.origin.y - searchBar.frame.maxY
     } else {
-      placesViewHeight.constant = frameHeight - labelView.frame.maxY
+      placesViewTopConstraint.constant = 0
     }
     placesView.reloadData()
     animateTableResizing()
