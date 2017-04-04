@@ -217,23 +217,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       return
     }
     
-    guard let mapViewImage = getImageFromView(mapView) else {
-      return
-    }
-    
+    let mapViewImage = mapView.imageFromContext()
     destinationVC.image = mapViewImage
-  }
-  
-  func getImageFromView(_ view: UIView) -> UIImage? {
-    UIGraphicsBeginImageContext(view.bounds.size)
-    guard let context = UIGraphicsGetCurrentContext() else {
-      return nil
-    }
-    
-    view.layer.render(in: context)
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return image
   }
   
   func setupSearchBar() {

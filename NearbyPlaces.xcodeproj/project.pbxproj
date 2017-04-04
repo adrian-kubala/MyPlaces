@@ -18,6 +18,7 @@
 		3A8C0E991D8A6D1D00F538B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */; };
 		3A8C0E9B1D8A6D1D00F538B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */; };
 		3A8C0E9E1D8A6D1D00F538B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */; };
+		3AA460B71E943F35004F4A9F /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA460B61E943F35004F4A9F /* UIView+Image.swift */; };
 		3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */; };
 		3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAF1D9C45F60039D426 /* CustomView.swift */; };
 		3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */; };
@@ -43,6 +44,7 @@
 		3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A8C0E9D1D8A6D1D00F538B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8C0E9F1D8A6D1D00F538B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AA460B61E943F35004F4A9F /* UIView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
 		3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+TintColor.swift"; sourceTree = "<group>"; };
 		3AF51AAF1D9C45F60039D426 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */,
 				3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */,
+				3AA460B61E943F35004F4A9F /* UIView+Image.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */,
 				3A8B47DF1D9BCD6900901F86 /* CustomButton.swift in Sources */,
 				3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */,
+				3AA460B71E943F35004F4A9F /* UIView+Image.swift in Sources */,
 				3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */,
 				3A8C0E941D8A6D1C00F538B0 /* AppDelegate.swift in Sources */,
 				3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */,
