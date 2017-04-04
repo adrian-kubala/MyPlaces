@@ -158,6 +158,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     return nearbyPlaces.count
   }
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return section == 0 ? "My places" : "Nearby places"
+  }
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as? PlaceView else {
       return UITableViewCell()
