@@ -152,6 +152,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: - UITableViewDataSource
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    guard section == 1 else {
+      return 0
+    }
+    
     if searchBar.isActive() {
       return typedPlaces.count
     }
