@@ -58,7 +58,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="sendImageFromMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iU5-1h-l1G"/>
+                                    <segue destination="x5Q-fJ-pGt" kind="show" identifier="showChatVC" id="wjx-op-Sf0"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-dh-IDV">
@@ -167,7 +167,6 @@
                         <outlet property="placesViewTopConstraint" destination="S2Z-s9-vWY" id="U05-Tp-t76"/>
                         <outlet property="searchBar" destination="Oou-t2-KuA" id="EqF-2A-vkH"/>
                         <outlet property="searchDisplayController" destination="YuF-Zb-Ejd" id="VOm-zv-o6R"/>
-                        <segue destination="x5Q-fJ-pGt" kind="show" identifier="showChatVC" id="fM5-Ua-KdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -241,7 +240,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="NearbyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="NearbyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.82352941176470584" green="0.9882352941176471" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

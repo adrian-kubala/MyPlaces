@@ -208,14 +208,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     centerLocationButton.isHidden = true
   }
   
-  @IBAction func sendImageFromMapView(_ sender: AnyObject) {
-    performSegue(withIdentifier: "showChatVC", sender: nil)
-  }
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let destinationVC = segue.destination as? ChatViewController, segue.identifier == "showChatVC" else {
-      return
-    }
+    let destinationVC = segue.destination as! ChatViewController
     
     let mapViewImage = mapView.imageFromContext()
     destinationVC.image = mapViewImage
