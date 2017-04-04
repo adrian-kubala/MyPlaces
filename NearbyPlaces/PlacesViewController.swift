@@ -211,8 +211,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let destinationVC = segue.destination as! ChatViewController
     
-    let mapViewImage = mapView.imageFromContext()
-    destinationVC.image = mapViewImage
+    
   }
   
   func setupSearchBar() {

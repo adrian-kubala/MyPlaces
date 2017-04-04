@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="364" width="375" height="303"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="RV9-W1-ZoG" userLabel="Blank View">
-                                    <rect key="frame" x="0.0" y="124" width="375" height="6"/>
+                                    <rect key="frame" x="0.0" y="123.5" width="375" height="6"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
@@ -74,7 +74,7 @@
                                         <rect key="frame" x="0.0" y="56" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNA-yO-VkB" id="u2L-8l-fkg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So8-85-PNk">
@@ -195,28 +195,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfQ-vP-SvL" userLabel="FrontView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tVe-a6-bUk">
-                                        <rect key="frame" x="67" y="363" width="290" height="170"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="170" id="fPx-Qq-cVR"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tVe-a6-bUk" secondAttribute="bottom" constant="22" id="7SG-BQ-X23"/>
-                                    <constraint firstItem="tVe-a6-bUk" firstAttribute="top" secondItem="hfQ-vP-SvL" secondAttribute="top" constant="411" id="GPw-hr-urI"/>
-                                    <constraint firstItem="tVe-a6-bUk" firstAttribute="leading" secondItem="hfQ-vP-SvL" secondAttribute="leading" constant="67" id="gGN-TB-DbK"/>
-                                    <constraint firstAttribute="bottom" secondItem="tVe-a6-bUk" secondAttribute="bottom" constant="70" id="imS-Hs-BFQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="tVe-a6-bUk" secondAttribute="trailing" constant="18" id="nkw-Sq-w38"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="7SG-BQ-X23"/>
-                                        <exclude reference="GPw-hr-urI"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.82352941180000006" green="0.98823529409999999" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -227,9 +206,6 @@
                             <constraint firstItem="hfQ-vP-SvL" firstAttribute="leading" secondItem="5yc-VA-TJI" secondAttribute="leading" id="l2b-Mh-fZE"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="mapViewImage" destination="tVe-a6-bUk" id="zaS-cv-XLi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZp-IL-vch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
