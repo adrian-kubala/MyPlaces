@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A00521F1E773F68002B71F3 /* Koszalin, Poland.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */; };
+		3A121D111E95AA750037CCED /* TopSlicedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D101E95AA750037CCED /* TopSlicedButton.swift */; };
 		3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */; };
 		3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */; };
 		3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Koszalin, Poland.gpx"; sourceTree = "<group>"; };
+		3A121D101E95AA750037CCED /* TopSlicedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopSlicedButton.swift; sourceTree = "<group>"; };
 		3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */,
 				3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */,
 				3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */,
+				3A121D101E95AA750037CCED /* TopSlicedButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */,
 				3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */,
 				3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */,
+				3A121D111E95AA750037CCED /* TopSlicedButton.swift in Sources */,
 				3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */,
 				3AFF21431D9DC407005A3AA0 /* CustomMapView.swift in Sources */,
 				3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */,

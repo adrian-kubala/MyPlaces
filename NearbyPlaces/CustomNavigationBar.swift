@@ -8,13 +8,10 @@
 
 import UIKit
 
-class CustomNavigationBar: UINavigationBar {
+class CustomNavigationBar: UINavigationBar, Sliced {
+  
   override func draw(_ rect: CGRect) {
-    drawNavigationBar()
+    drawSlicedView(leftBottomCornerOffset: 5.0, with: barTintColor!)
   }
   
-  func drawNavigationBar() {
-    let customView = CustomView(view: self)
-    customView.drawViewByBezierPath(5.0, with: barTintColor!)
-  }
 }

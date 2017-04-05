@@ -16,10 +16,10 @@ class CustomView {
     self.view = view
   }
   
-  func drawViewByBezierPath(_ leftBottomCornerOffset: CGFloat, with color: UIColor) {
+  func drawViewByBezierPath(leftBottomCornerOffset: CGFloat = 0, rightTopCornerOffset: CGFloat = 0, with color: UIColor) {
     let bezierPath = UIBezierPath()
     bezierPath.move(to: view.bounds.origin)
-    bezierPath.addLine(to: CGPoint(x: view.bounds.maxX, y: view.bounds.origin.y))
+    bezierPath.addLine(to: CGPoint(x: view.bounds.maxX, y: view.bounds.origin.y + rightTopCornerOffset))
     bezierPath.addLine(to: CGPoint(x: view.bounds.maxX, y: view.bounds.maxY))
     bezierPath.addLine(to: CGPoint(x: view.bounds.origin.x, y: view.bounds.maxY - leftBottomCornerOffset))
     bezierPath.close()
