@@ -10,18 +10,31 @@ import UIKit
 
 @IBDesignable
 class CustomView {
-  fileprivate let view: UIView
+  
+  private let view: UIView
   
   init(view: UIView) {
     self.view = view
   }
   
-  func drawViewByBezierPath(leftBottomCornerOffset: CGFloat = 0, rightTopCornerOffset: CGFloat = 0, with color: UIColor) {
+  func drawViewByBezierPath(sliceSide: SliceSide, with color: UIColor) {
     let bezierPath = UIBezierPath()
     bezierPath.move(to: view.bounds.origin)
-    bezierPath.addLine(to: CGPoint(x: view.bounds.maxX, y: view.bounds.origin.y + rightTopCornerOffset))
-    bezierPath.addLine(to: CGPoint(x: view.bounds.maxX, y: view.bounds.maxY))
-    bezierPath.addLine(to: CGPoint(x: view.bounds.origin.x, y: view.bounds.maxY - leftBottomCornerOffset))
+    
+    var rightTop = CGPoint(x: view.bounds.maxX, y: view.bounds.origin.y)
+    let rightBottom = CGPoint(x: view.bounds.maxX, y: view.bounds.maxY)
+    var leftBottom = CGPoint(x: view.bounds.origin.x, y: view.bounds.maxY)
+    
+    switch sliceSide {
+    case .top(let offset):
+      rightTop.y += offset
+    case .bottom(let offset):
+      leftBottom.y -= offset
+    }
+    
+    bezierPath.addLine(to: rightTop)
+    bezierPath.addLine(to: rightBottom)
+    bezierPath.addLine(to: leftBottom)
     bezierPath.close()
     
     color.setFill()
@@ -30,4 +43,5 @@ class CustomView {
     color.setStroke()
     bezierPath.stroke()
   }
+  
 }

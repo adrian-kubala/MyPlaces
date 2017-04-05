@@ -11,7 +11,7 @@ import UIKit
 class TopSlicedButton: UIButton, Sliced {
 
   override func draw(_ rect: CGRect) {
-    drawSlicedView(rightTopCornerOffset: 5)
+    drawSlicedView(sliceSide: .top(offset: 5))
     setupImageView()
   }
   
@@ -26,15 +26,22 @@ class TopSlicedButton: UIButton, Sliced {
 
 protocol Sliced {
   
-  func drawSlicedView(leftBottomCornerOffset: CGFloat, rightTopCornerOffset: CGFloat, with color: UIColor)
+  func drawSlicedView(sliceSide: SliceSide, with color: UIColor)
   
 }
 
 extension Sliced where Self: UIView {
   
-  func drawSlicedView(leftBottomCornerOffset: CGFloat = 0, rightTopCornerOffset: CGFloat = 0, with color: UIColor = .black) {
+  func drawSlicedView(sliceSide: SliceSide, with color: UIColor = .black) {
     let customView = CustomView(view: self)
-    customView.drawViewByBezierPath(leftBottomCornerOffset: leftBottomCornerOffset, rightTopCornerOffset: rightTopCornerOffset, with: color)
+    customView.drawViewByBezierPath(sliceSide: sliceSide, with: color)
   }
+  
+}
+
+enum SliceSide {
+  
+  case top(offset: CGFloat)
+  case bottom(offset: CGFloat)
   
 }

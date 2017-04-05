@@ -11,7 +11,7 @@ import UIKit
 class CustomNavigationBar: UINavigationBar, Sliced {
   
   override func draw(_ rect: CGRect) {
-    drawSlicedView(leftBottomCornerOffset: 5.0, with: barTintColor!)
+    drawSlicedView(sliceSide: .bottom(offset: 5.0), with: barTintColor!)
   }
   
 }
