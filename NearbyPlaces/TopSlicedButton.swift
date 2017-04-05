@@ -23,25 +23,3 @@ class TopSlicedButton: UIButton, Sliced {
   }
   
 }
-
-protocol Sliced {
-  
-  func drawSlicedView(sliceSide: SliceSide, with color: UIColor)
-  
-}
-
-extension Sliced where Self: UIView {
-  
-  func drawSlicedView(sliceSide: SliceSide, with color: UIColor = .black) {
-    let customView = CustomView(view: self)
-    customView.drawViewByBezierPath(sliceSide: sliceSide, with: color)
-  }
-  
-}
-
-enum SliceSide {
-  
-  case top(offset: CGFloat)
-  case bottom(offset: CGFloat)
-  
-}
