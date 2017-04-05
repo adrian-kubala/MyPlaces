@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ChatViewController: UIViewController {
+  
+  var userLocation: CLLocationCoordinate2D?
+  var markerCoordinate: CLLocationCoordinate2D?
   
   override func viewDidLoad() {
     super.viewDidLoad()
