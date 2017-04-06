@@ -58,13 +58,14 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
   }
   
-  
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    let pickedImage = info["UIImagePickerControllerOriginalImage"] as! UIImage
+    let croppedRect = info["UIImagePickerControllerCropRect"] as! CGRect
+    let originalImage = info["UIImagePickerControllerOriginalImage"] as! UIImage
     
-    let croppedImage = pickedImage.cropToBounds(width: placeImageView.bounds.size.width, height: placeImageView.bounds.size.height)
-    let scaledImage = croppedImage.scaleImage(width: placeImageView.bounds.size.width)
-    placeImageView.image = scaledImage
+    let croppedImage = originalImage.cropToRect(croppedRect)
+    
+    placeImageView.image = croppedImage
     dismiss(animated: true, completion: nil)
   }
+  
 }

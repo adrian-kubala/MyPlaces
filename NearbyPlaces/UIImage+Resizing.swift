@@ -41,6 +41,16 @@ extension UIImage {
     return newImage
   }
   
+  func cropToRect(_ rect: CGRect) -> UIImage? {
+    let imageRef = cgImage?.cropping(to: rect)
+    
+    if let imageRef = imageRef {
+      return UIImage(cgImage: imageRef)
+    } else {
+      return nil
+    }
+  }
+  
   func scaleImage(width: CGFloat) -> UIImage {
     let newWidth = width
     let scale = newWidth / size.width
