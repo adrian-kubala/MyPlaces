@@ -11,11 +11,15 @@ import CoreLocation
 
 class ChatViewController: UIViewController {
   
+  @IBOutlet weak var placeImageView: UIImageView!
   var userLocation: CLLocationCoordinate2D?
   var markerCoordinate: CLLocationCoordinate2D?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    placeImageView.layer.cornerRadius = 10
+    placeImageView.clipsToBounds = true
     
     navigationController?.navigationBar.tintColor = UIColor.black
   }

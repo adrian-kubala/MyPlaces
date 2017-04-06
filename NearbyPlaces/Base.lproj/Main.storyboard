@@ -287,6 +287,9 @@
                             <constraint firstItem="hfQ-vP-SvL" firstAttribute="leading" secondItem="5yc-VA-TJI" secondAttribute="leading" id="l2b-Mh-fZE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="placeImageView" destination="TMl-Mr-vkj" id="fZc-Lf-T3O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZp-IL-vch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
