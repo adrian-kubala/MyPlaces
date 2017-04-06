@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var photoSourceControl: UISegmentedControl!
@@ -70,6 +70,11 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     placeImageView.image = originalImage
     dismiss(animated: true, completion: nil)
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
   }
   
 }
