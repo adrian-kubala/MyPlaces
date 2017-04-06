@@ -9,28 +9,28 @@
 import UIKit
 
 extension UIImage {
-  func cropToBounds(width: Double, height: Double) -> UIImage {
+  func cropToBounds(width: CGFloat, height: CGFloat) -> UIImage {
     let contextImage = UIImage(cgImage: cgImage!)
     let contextSize = contextImage.size
     
     var posX = CGFloat(0.0)
     var posY = CGFloat(0.0)
-    var cgWidth = CGFloat(width)
-    var cgHeight = CGFloat(height)
+    var newWidth = width
+    var newHeight = height
     
     if contextSize.width > contextSize.height {
       posX = ((contextSize.width - contextSize.height) / 2)
       posY = 0
-      cgWidth = contextSize.height
-      cgHeight = contextSize.height
+      newWidth = contextSize.height
+      newHeight = contextSize.height
     } else {
       posX = 0
       posY = ((contextSize.height - contextSize.width) / 2)
-      cgWidth = contextSize.width
-      cgHeight = contextSize.width
+      newWidth = contextSize.width
+      newHeight = contextSize.width
     }
     
-    let rect = CGRect(x: posX, y: posY, width: cgWidth, height: cgHeight)
+    let rect = CGRect(x: posX, y: posY, width: newWidth, height: newHeight)
     
     // Create bitmap image from context using the rect
     let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
@@ -41,8 +41,8 @@ extension UIImage {
     return newImage
   }
   
-  func scaleImage(width: Double) -> UIImage {
-    let newWidth = CGFloat(width)
+  func scaleImage(width: CGFloat) -> UIImage {
+    let newWidth = width
     let scale = newWidth / size.width
     let newHeight = size.height * scale
     UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
