@@ -38,7 +38,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    centerLocationButton.isHidden = true
     setupNavigationItem()
     setupMapView()
     setupLocationManager()
