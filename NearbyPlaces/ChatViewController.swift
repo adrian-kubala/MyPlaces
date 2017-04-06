@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var photoSourceControl: UISegmentedControl!
@@ -37,6 +37,39 @@ class ChatViewController: UIViewController {
     photoSourceControl.layer.cornerRadius = cornerRadius
     coordinateControl.layer.cornerRadius = cornerRadius
     addPhotoButton.layer.cornerRadius = addPhotoButton.bounds.size.width / 2
+  }
+  
+  @IBAction func addPicture(_ sender: Any) {
+  
+    let cameraIsAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
+    let photoLibraryIsAvailable = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
+    
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = self
+    
+    if photoSourceControl.selectedSegmentIndex == 0 && photoLibraryIsAvailable {
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.allowsEditing = true
+      present(imagePicker, animated: true, completion: nil)
+    } else if cameraIsAvailable {
+      imagePicker.sourceType = .camera
+      imagePicker.allowsEditing = false
+      present(imagePicker, animated: true, completion: nil)
+    }
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    let cropRect = info["UIImagePickerControllerCropRect"] as? CGRect
+    var originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage
+    
+    if let croppedRect = cropRect {
+      originalImage = originalImage?.cropToRect(croppedRect)
+    } else {
+      originalImage = originalImage?.cropToBounds(width: placeImageView.bounds.size.width, height: placeImageView.bounds.size.height)
+    }
+    
+    placeImageView.image = originalImage
+    dismiss(animated: true, completion: nil)
   }
   
 }
