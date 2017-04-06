@@ -169,6 +169,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     return section == 0 ? "My places" : "Nearby places"
   }
   
+  // MARK: UITableViewDelegate
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 35
+  }
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as? PlaceView else {
       return UITableViewCell()
