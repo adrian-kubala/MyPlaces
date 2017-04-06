@@ -210,11 +210,12 @@
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cUu-Uj-D4M" userLabel="Photo Source Control">
                                         <rect key="frame" x="20" y="396" width="305" height="29"/>
+                                        <color key="backgroundColor" red="0.81568627450980391" green="0.99607843137254903" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="Library"/>
                                             <segment title="Take a picture"/>
                                         </segments>
-                                        <color key="tintColor" red="0.81176470590000005" green="0.99607843139999996" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach photo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUK-B4-gK4" userLabel="Attach Photo Label">
                                         <rect key="frame" x="20" y="365" width="335" height="23.5"/>
@@ -237,6 +238,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvg-MS-CkR" userLabel="Add Photo Button">
                                         <rect key="frame" x="333" y="399" width="22" height="22"/>
+                                        <color key="backgroundColor" red="0.81960784313725488" green="0.99607843137254903" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jvg-MS-CkR" secondAttribute="height" multiplier="1:1" id="YPU-fb-E3k"/>
                                         </constraints>
@@ -247,11 +249,12 @@
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zq5-GL-neP" userLabel="Coordinate Control">
                                         <rect key="frame" x="20" y="479.5" width="305" height="29"/>
+                                        <color key="backgroundColor" red="0.81568627450980391" green="0.99607843137254903" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="User location"/>
                                             <segment title="Marker's position"/>
                                         </segments>
-                                        <color key="tintColor" red="0.81176470590000005" green="0.99607843139999996" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -288,6 +291,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addPhotoButton" destination="jvg-MS-CkR" id="YRk-EA-ejh"/>
+                        <outlet property="coordinateControl" destination="Zq5-GL-neP" id="xaL-Ob-qyu"/>
+                        <outlet property="photoSourceControl" destination="cUu-Uj-D4M" id="Ops-6f-1cb"/>
                         <outlet property="placeImageView" destination="TMl-Mr-vkj" id="fZc-Lf-T3O"/>
                     </connections>
                 </viewController>
