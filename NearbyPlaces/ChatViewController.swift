@@ -77,13 +77,5 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     textField.resignFirstResponder()
     return true
   }
-  
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    if let isEmpty = textField.text?.isEmpty, isEmpty == false {
-      addPlaceButton.isUserInteractionEnabled = true
-    } else {
-      addPlaceButton.isUserInteractionEnabled = false
-    }
-  }
-  
+
 }
