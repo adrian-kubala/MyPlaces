@@ -8,21 +8,9 @@
 
 import UIKit
 
-class CustomButton: UIButton {
+class CustomButton: UIButton, Sliced {
   override func draw(_ rect: CGRect) {
-    drawButton()
-    setupImageView()
+    drawSlicedView(sliceSide:.bottom(offset: 5))
   }
   
-  func drawButton() {
-    let customView = CustomView(view: self)
-    customView.drawViewByBezierPath(5.0, with: UIColor.black)
-  }
-  
-  func setupImageView() {
-    let imgView = UIImageView()
-    imgView.image = UIImage(named: "tick")
-    imgView.changeTintColor(UIColor.white)
-    setImage(imgView.image, for: UIControlState())
-  }
 }

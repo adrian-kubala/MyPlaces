@@ -38,7 +38,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    centerLocationButton.isHidden = true
     setupNavigationItem()
     setupMapView()
     setupLocationManager()
@@ -211,8 +210,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let destinationVC = segue.destination as! ChatViewController
     
-    let mapViewImage = mapView.imageFromContext()
-    destinationVC.image = mapViewImage
+    destinationVC.markerCoordinate = mapView.centerCoordinate
+    destinationVC.userLocation = userLocation
   }
   
   func setupSearchBar() {
