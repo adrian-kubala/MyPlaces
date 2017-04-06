@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var photoSourceControl: UISegmentedControl!
@@ -37,6 +37,17 @@ class ChatViewController: UIViewController {
     photoSourceControl.layer.cornerRadius = cornerRadius
     coordinateControl.layer.cornerRadius = cornerRadius
     addPhotoButton.layer.cornerRadius = addPhotoButton.bounds.size.width / 2
+  }
+  
+  @IBAction func addPicture(_ sender: Any) {
+    
+    if UIImagePickerController.isSourceTypeAvailable(.camera) && photoSourceControl.selectedSegmentIndex == 0 {
+      let imagePicker = UIImagePickerController()
+      imagePicker.delegate = self
+      imagePicker.sourceType = .camera
+      imagePicker.allowsEditing = false
+      present(imagePicker, animated: true, completion: nil)
+    }
   }
   
 }
