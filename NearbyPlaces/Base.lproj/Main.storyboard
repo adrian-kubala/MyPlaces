@@ -213,7 +213,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocw-lm-hIb" userLabel="Add Place Button" customClass="TopSlicedButton" customModule="NearbyPlaces" customModuleProvider="target">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocw-lm-hIb" userLabel="Add Place Button" customClass="TopSlicedButton" customModule="NearbyPlaces" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="542" width="375" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="J6w-gj-lfY"/>
@@ -308,6 +308,7 @@
                     </view>
                     <connections>
                         <outlet property="addPhotoButton" destination="jvg-MS-CkR" id="YRk-EA-ejh"/>
+                        <outlet property="addPlaceButton" destination="ocw-lm-hIb" id="lT5-nI-P0C"/>
                         <outlet property="coordinateControl" destination="Zq5-GL-neP" id="xaL-Ob-qyu"/>
                         <outlet property="photoSourceControl" destination="cUu-Uj-D4M" id="Ops-6f-1cb"/>
                         <outlet property="placeImageView" destination="TMl-Mr-vkj" id="fZc-Lf-T3O"/>

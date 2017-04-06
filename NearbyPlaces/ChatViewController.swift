@@ -15,6 +15,7 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   @IBOutlet weak var photoSourceControl: UISegmentedControl!
   @IBOutlet weak var coordinateControl: UISegmentedControl!
   @IBOutlet weak var addPhotoButton: UIButton!
+  @IBOutlet weak var addPlaceButton: TopSlicedButton!
   
   var userLocation: CLLocationCoordinate2D?
   var markerCoordinate: CLLocationCoordinate2D?
@@ -75,6 +76,14 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     return true
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    if let isEmpty = textField.text?.isEmpty, isEmpty == false {
+      addPlaceButton.isUserInteractionEnabled = true
+    } else {
+      addPlaceButton.isUserInteractionEnabled = false
+    }
   }
   
 }
