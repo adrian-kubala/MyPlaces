@@ -66,7 +66,6 @@
                                 <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="RV9-W1-ZoG" userLabel="Blank View">
                                     <rect key="frame" x="0.0" y="124" width="375" height="6"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeView" rowHeight="50" id="yNA-yO-VkB" customClass="PlaceView" customModule="NearbyPlaces" customModuleProvider="target">
