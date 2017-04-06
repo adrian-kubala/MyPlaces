@@ -40,10 +40,18 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   }
   
   @IBAction func addPicture(_ sender: Any) {
+  
+    let cameraIsAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
+    let photoLibraryIsAvailable = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
     
-    if UIImagePickerController.isSourceTypeAvailable(.camera) && photoSourceControl.selectedSegmentIndex == 0 {
-      let imagePicker = UIImagePickerController()
-      imagePicker.delegate = self
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = self
+    
+    if photoSourceControl.selectedSegmentIndex == 0 && photoLibraryIsAvailable {
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.allowsEditing = true
+      present(imagePicker, animated: true, completion: nil)
+    } else if cameraIsAvailable {
       imagePicker.sourceType = .camera
       imagePicker.allowsEditing = false
       present(imagePicker, animated: true, completion: nil)
