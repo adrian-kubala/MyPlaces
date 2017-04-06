@@ -58,4 +58,8 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
   }
   
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+  }
 }
