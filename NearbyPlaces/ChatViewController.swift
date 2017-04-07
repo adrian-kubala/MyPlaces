@@ -96,6 +96,9 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? userLocation : markerCoordinate
     let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
+    newPlace.coordinate.formattedAddress { (address) in
+      newPlace.address = address
+    }
     
     delegate?.didCreatePlace(newPlace)
     _ = navigationController?.popViewController(animated: true)

@@ -403,16 +403,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func didCreatePlace(_ place: Place) {
-    let geocoder = GMSGeocoder()
-    geocoder.reverseGeocodeCoordinate(place.coordinate) { (response, error) in
-      if let results = response?.results() {
-        for result in results {
-          let formattedAddress = result.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
-          place.address = formattedAddress
-        }
-      }
-    }
-    
     userPlaces.append(place)
     placesView.reloadData()
   }

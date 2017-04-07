@@ -12,6 +12,7 @@
 		3A121D141E95B66F0037CCED /* SliceSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D131E95B66F0037CCED /* SliceSide.swift */; };
 		3A121D171E95B69B0037CCED /* Sliced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D161E95B69B0037CCED /* Sliced.swift */; };
 		3A2484E81E97F08000D7BB58 /* CreatorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2484E71E97F08000D7BB58 /* CreatorViewControllerDelegate.swift */; };
+		3A2484EA1E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2484E91E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift */; };
 		3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */; };
 		3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */; };
 		3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */; };
@@ -40,6 +41,7 @@
 		3A121D131E95B66F0037CCED /* SliceSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceSide.swift; sourceTree = "<group>"; };
 		3A121D161E95B69B0037CCED /* Sliced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sliced.swift; sourceTree = "<group>"; };
 		3A2484E71E97F08000D7BB58 /* CreatorViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorViewControllerDelegate.swift; sourceTree = "<group>"; };
+		3A2484E91E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Address.swift"; sourceTree = "<group>"; };
 		3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */,
 				3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */,
 				3AA460B61E943F35004F4A9F /* UIView+Image.swift */,
+				3A2484E91E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */,
+				3A2484EA1E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift in Sources */,
 				3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */,
 				3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */,
 				3A121D111E95AA750037CCED /* TopSlicedButton.swift in Sources */,
