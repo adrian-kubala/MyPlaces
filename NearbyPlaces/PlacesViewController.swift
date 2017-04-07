@@ -15,6 +15,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
   @IBOutlet weak var centerLocationButton: UIButton!
+  @IBOutlet weak var emptyUserPlacesLabel: UILabel!
   
   @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
@@ -152,6 +153,11 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     if searchBar.isActive() {
       return section == 0 ? typedPlaces.count : nearbyPlaces.count
     } else {
+      if userPlaces.count == 0 {
+        emptyUserPlacesLabel.isHidden = false
+      } else {
+        emptyUserPlacesLabel.isHidden = true
+      }
       return userPlaces.count
     }
   }
