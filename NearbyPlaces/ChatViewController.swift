@@ -21,6 +21,8 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   var userLocation: CLLocationCoordinate2D?
   var markerCoordinate: CLLocationCoordinate2D?
   
+  weak var delegate: CreatorViewControllerDelegate?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -94,5 +96,9 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? userLocation : markerCoordinate
     let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
+    
+    delegate?.didCreatePlace(newPlace)
+    _ = navigationController?.popViewController(animated: true)
   }
+  
 }

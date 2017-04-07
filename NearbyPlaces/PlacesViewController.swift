@@ -9,7 +9,7 @@ import UIKit
 import GooglePlaces
 import MapKit
 
-class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate {
+class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
@@ -21,6 +21,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   var placesClient = GMSPlacesClient()
   var nearbyPlaces: [Place] = []
   var typedPlaces: [Place] = []
+  var userPlaces: [Place] = []
   
   var userLocation: CLLocationCoordinate2D {
     guard let location = locationManager.location?.coordinate else {
@@ -218,6 +219,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     
     destinationVC.markerCoordinate = mapView.centerCoordinate
     destinationVC.userLocation = userLocation
+    destinationVC.delegate = self
   }
   
   func setupSearchBar() {
@@ -397,5 +399,21 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       return typedPlaces[row]
     }
     return nearbyPlaces[row]
+  }
+  
+  func didCreatePlace(_ place: Place) {
+    let location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+    let geocoder = CLGeocoder()
+    geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+      if let placemark = placemarks?.first {
+        if let street = placemark.thoroughfare, let city = placemark.locality, let country = placemark.country {
+          let separator = ", "
+          let formattedAddress = street + separator + city + separator + country
+          place.address = formattedAddress
+        }
+      }
+    }
+    userPlaces.append(place)
+    placesView.reloadData()
   }
 }
