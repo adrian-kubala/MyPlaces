@@ -7,6 +7,7 @@
 
 import UIKit
 import GooglePlaces
+import GoogleMaps
 import MapKit
 
 class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate {
@@ -402,17 +403,16 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func didCreatePlace(_ place: Place) {
-    let location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-    let geocoder = CLGeocoder()
-    geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-      if let placemark = placemarks?.first {
-        if let street = placemark.thoroughfare, let city = placemark.locality, let country = placemark.country {
-          let separator = ", "
-          let formattedAddress = street + separator + city + separator + country
+    let geocoder = GMSGeocoder()
+    geocoder.reverseGeocodeCoordinate(place.coordinate) { (response, error) in
+      if let results = response?.results() {
+        for result in results {
+          let formattedAddress = result.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
           place.address = formattedAddress
         }
       }
     }
+    
     userPlaces.append(place)
     placesView.reloadData()
   }
