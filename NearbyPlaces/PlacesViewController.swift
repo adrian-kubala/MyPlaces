@@ -243,10 +243,18 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    guard let isEmpty = searchBar.text?.isEmpty, isEmpty else {
+      return
+    }
+    
     self.searchBar.changeSearchIcon()
     resizeTable()
     self.searchBar.updateSearchText(currentAddress)
     typedPlaces.removeAll()
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
   }
   
   func makeRequestForPlaces() {
