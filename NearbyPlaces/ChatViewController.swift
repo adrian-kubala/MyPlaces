@@ -92,6 +92,7 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
       return
     }
     
-    
+    let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? userLocation : markerCoordinate
+    let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
   }
 }
