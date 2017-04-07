@@ -16,6 +16,7 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   @IBOutlet weak var coordinateControl: UISegmentedControl!
   @IBOutlet weak var addPhotoButton: UIButton!
   @IBOutlet weak var addPlaceButton: TopSlicedButton!
+  @IBOutlet weak var placeNameTextField: UITextField!
   
   var userLocation: CLLocationCoordinate2D?
   var markerCoordinate: CLLocationCoordinate2D?
@@ -78,4 +79,19 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     return true
   }
 
+  @IBAction func addPlace() {
+    guard let isEmpty = placeNameTextField.text?.isEmpty, isEmpty == false else {
+      let alertController = UIAlertController(title: "Did not enter title", message: "You need to enter a title to add a new place.", preferredStyle: .alert)
+      let alertAction = UIAlertAction(title: "OK", style: .default) { action in
+        self.placeNameTextField.becomeFirstResponder()
+      }
+      alertController.addAction(alertAction)
+      alertController.view.tintColor = UIColor.black
+      present(alertController, animated: true, completion: nil)
+      
+      return
+    }
+    
+    
+  }
 }
