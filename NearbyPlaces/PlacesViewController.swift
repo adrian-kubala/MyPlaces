@@ -70,6 +70,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: - CLLocationManagerDelegate
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    self.mapView.setupMapRegion(locations.last!)
+    setupGeocoder(locations.last!)
+    showNearbyPlaces()
+    
     locationManager.stopUpdatingLocation()
   }
   
@@ -87,23 +91,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     print(error)
   }
   
-  // MARK: - MKMapViewDelegate
-  func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-    guard let location = userLocation.location else {
-      return
-    }
-    
-    self.mapView.setupMapRegion(location)
-    setupGeocoder(location)
-    showNearbyPlaces()
-  }
-  
   func setupGeocoder(_ location: CLLocation) {
     location.coordinate.formattedAddress { (address) in
       self.currentAddress = address ?? "Current address"
       self.searchBar.text = address
     }
   }
+  
+  // MARK: - MKMapViewDelegate
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if annotation is MKPointAnnotation {
