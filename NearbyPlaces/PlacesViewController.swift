@@ -147,23 +147,25 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   // MARK: - UITableViewDataSource
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard section == 1 else {
-      return 0
-    }
-    
-    if searchBar.isActive() {
-      return typedPlaces.count
-    }
-    return nearbyPlaces.count
-  }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return searchBar.isActive() ? 2 : 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if searchBar.isActive() {
+      return section == 0 ? typedPlaces.count : nearbyPlaces.count
+    } else {
+      return userPlaces.count
+    }
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return section == 0 ? "My places" : "Nearby places"
+    if searchBar.isActive() {
+      return section == 0 ? "Results" : "Nearby places"
+    } else {
+      return "My places"
+    }
   }
   
   // MARK: UITableViewDelegate
@@ -173,19 +175,16 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as? PlaceView else {
-      return UITableViewCell()
-    }
+    let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as! PlaceView
     
-    let row = indexPath.row
-    let data = chooseData(row)
+    let data = chooseData(forIndexPath: indexPath)
     cell.setupWithData(data)
     
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let data = chooseData(indexPath.row)
+    let data = chooseData(forIndexPath: indexPath)
     let address = data.address
     let coordinate = data.coordinate
     
@@ -387,14 +386,15 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func animateTableResizing() {
     UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
       self.placesView.layoutIfNeeded()
-      }, completion: nil)
+    }, completion: nil)
   }
   
-  func chooseData(_ row: Int) -> Place {
+  func chooseData(forIndexPath indexPath: IndexPath) -> Place {
     if searchBar.isActive() {
-      return typedPlaces[row]
+      return indexPath.section == 0 ? typedPlaces[indexPath.row] : nearbyPlaces[indexPath.row]
+    } else {
+      return userPlaces[indexPath.row]
     }
-    return nearbyPlaces[row]
   }
   
   func didCreatePlace(_ place: Place) {
