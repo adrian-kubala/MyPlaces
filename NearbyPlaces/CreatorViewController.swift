@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var photoSourceControl: UISegmentedControl!

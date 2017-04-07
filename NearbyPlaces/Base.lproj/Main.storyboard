@@ -179,10 +179,10 @@
             </objects>
             <point key="canvasLocation" x="1116.5" y="348.5"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Creator View Controller-->
         <scene sceneID="LbR-6e-P52">
             <objects>
-                <viewController id="x5Q-fJ-pGt" customClass="ChatViewController" customModule="NearbyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x5Q-fJ-pGt" customClass="CreatorViewController" customModule="NearbyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5LR-Ga-fgs"/>
                         <viewControllerLayoutGuide type="bottom" id="mWW-vc-AFo"/>
@@ -327,7 +327,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="NearbyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="NearbyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76470588235294112" green="1" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>

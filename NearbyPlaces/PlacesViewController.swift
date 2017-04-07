@@ -216,7 +216,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let destinationVC = segue.destination as! ChatViewController
+    let destinationVC = segue.destination as! CreatorViewController
     
     destinationVC.markerCoordinate = mapView.centerCoordinate
     destinationVC.userLocation = userLocation

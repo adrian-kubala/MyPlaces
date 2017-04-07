@@ -26,7 +26,7 @@
 		3AA460B71E943F35004F4A9F /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA460B61E943F35004F4A9F /* UIView+Image.swift */; };
 		3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */; };
 		3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAF1D9C45F60039D426 /* CustomView.swift */; };
-		3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */; };
+		3AF807DD1D97FBC6007E4BA7 /* CreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DC1D97FBC6007E4BA7 /* CreatorViewController.swift */; };
 		3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF807DF1D9851F8007E4BA7 /* PlaceView.swift */; };
 		3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */; };
 		3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */; };
@@ -57,7 +57,7 @@
 		3AA460B61E943F35004F4A9F /* UIView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
 		3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+TintColor.swift"; sourceTree = "<group>"; };
 		3AF51AAF1D9C45F60039D426 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		3AF807DC1D97FBC6007E4BA7 /* CreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorViewController.swift; sourceTree = "<group>"; };
 		3AF807DF1D9851F8007E4BA7 /* PlaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationitem.swift; sourceTree = "<group>"; };
 		3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resizing.swift"; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */,
-				3AF807DC1D97FBC6007E4BA7 /* ChatViewController.swift */,
+				3AF807DC1D97FBC6007E4BA7 /* CreatorViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -349,7 +349,7 @@
 				3A8B47DF1D9BCD6900901F86 /* CustomButton.swift in Sources */,
 				3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */,
 				3AA460B71E943F35004F4A9F /* UIView+Image.swift in Sources */,
-				3AF807DD1D97FBC6007E4BA7 /* ChatViewController.swift in Sources */,
+				3AF807DD1D97FBC6007E4BA7 /* CreatorViewController.swift in Sources */,
 				3A8C0E941D8A6D1C00F538B0 /* AppDelegate.swift in Sources */,
 				3A121D171E95B69B0037CCED /* Sliced.swift in Sources */,
 				3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */,
