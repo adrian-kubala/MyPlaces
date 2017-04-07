@@ -32,7 +32,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     return location
   }
   
-  var placemark: CLPlacemark?
   var currentAddress = String()
   
   fileprivate var requestTimer = Timer()
@@ -100,12 +99,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func setupGeocoder(_ location: CLLocation) {
-    let geocoder = CLGeocoder()
-    geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-      if let placemark = placemarks?.first {
-        self.searchBar.updateSearchText(with: placemark)
-        self.placemark = placemark
-      }
+    location.coordinate.formattedAddress { (address) in
+      self.searchBar.text = address
     }
   }
   
