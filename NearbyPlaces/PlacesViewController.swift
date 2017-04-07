@@ -100,6 +100,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func setupGeocoder(_ location: CLLocation) {
     location.coordinate.formattedAddress { (address) in
+      self.currentAddress = address ?? "Current address"
       self.searchBar.text = address
     }
   }
