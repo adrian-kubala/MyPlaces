@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A00521F1E773F68002B71F3 /* Koszalin, Poland.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */; };
+		3A0957A01E9C4304009A6BE2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A09579E1E9C4304009A6BE2 /* Search.storyboard */; };
 		3A121D111E95AA750037CCED /* TopSlicedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D101E95AA750037CCED /* TopSlicedButton.swift */; };
 		3A121D141E95B66F0037CCED /* SliceSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D131E95B66F0037CCED /* SliceSide.swift */; };
 		3A121D171E95B69B0037CCED /* Sliced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D161E95B69B0037CCED /* Sliced.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Koszalin, Poland.gpx"; sourceTree = "<group>"; };
+		3A09579F1E9C4304009A6BE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		3A121D101E95AA750037CCED /* TopSlicedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopSlicedButton.swift; sourceTree = "<group>"; };
 		3A121D131E95B66F0037CCED /* SliceSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceSide.swift; sourceTree = "<group>"; };
 		3A121D161E95B69B0037CCED /* Sliced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sliced.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */,
+				3A09579E1E9C4304009A6BE2 /* Search.storyboard */,
 				3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -277,6 +280,7 @@
 				3A8C0E9B1D8A6D1D00F538B0 /* Assets.xcassets in Resources */,
 				3A00521F1E773F68002B71F3 /* Koszalin, Poland.gpx in Resources */,
 				3A8C0E991D8A6D1D00F538B0 /* Main.storyboard in Resources */,
+				3A0957A01E9C4304009A6BE2 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +364,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3A09579E1E9C4304009A6BE2 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A09579F1E9C4304009A6BE2 /* Base */,
+			);
+			name = Search.storyboard;
+			sourceTree = "<group>";
+		};
 		3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
