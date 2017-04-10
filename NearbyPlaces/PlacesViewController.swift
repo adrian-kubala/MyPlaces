@@ -15,6 +15,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
   @IBOutlet weak var centerLocationButton: UIButton!
+  @IBOutlet weak var emptyUserPlacesLabel: UILabel!
   
   @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
@@ -45,6 +46,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupPlacesClient()
     setupTableView()
     setupSearchBar()
+    showNearbyPlaces()
   }
   
   func setupNavigationItem() {
@@ -70,6 +72,9 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: - CLLocationManagerDelegate
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    self.mapView.setupMapRegion(locations.last!)
+    setupGeocoder(locations.last!)
+
     locationManager.stopUpdatingLocation()
   }
   
@@ -87,22 +92,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     print(error)
   }
   
-  // MARK: - MKMapViewDelegate
-  func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-    guard let location = userLocation.location else {
-      return
-    }
-    
-    self.mapView.setupMapRegion(location)
-    setupGeocoder(location)
-    showNearbyPlaces()
-  }
-  
   func setupGeocoder(_ location: CLLocation) {
     location.coordinate.formattedAddress { (address) in
+      self.currentAddress = address ?? "Current address"
       self.searchBar.text = address
     }
   }
+  
+  // MARK: - MKMapViewDelegate
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if annotation is MKPointAnnotation {
@@ -156,6 +153,11 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     if searchBar.isActive() {
       return section == 0 ? typedPlaces.count : nearbyPlaces.count
     } else {
+      if userPlaces.count == 0 {
+        emptyUserPlacesLabel.isHidden = false
+      } else {
+        emptyUserPlacesLabel.isHidden = true
+      }
       return userPlaces.count
     }
   }
@@ -384,8 +386,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func resizeTable() {
     if searchBar.isActive() {
       placesViewTopConstraint.constant -= placesView.frame.origin.y - searchBar.frame.maxY
+      emptyUserPlacesLabel.isHidden = true
     } else {
       placesViewTopConstraint.constant = 0
+      if userPlaces.isEmpty {
+        emptyUserPlacesLabel.isHidden = false
+      }
     }
     placesView.reloadData()
     animateTableResizing()
