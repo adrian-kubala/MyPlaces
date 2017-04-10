@@ -46,6 +46,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupPlacesClient()
     setupTableView()
     setupSearchBar()
+    showNearbyPlaces()
   }
   
   func setupNavigationItem() {
@@ -73,8 +74,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     self.mapView.setupMapRegion(locations.last!)
     setupGeocoder(locations.last!)
-    showNearbyPlaces()
-    
+
     locationManager.stopUpdatingLocation()
   }
   
