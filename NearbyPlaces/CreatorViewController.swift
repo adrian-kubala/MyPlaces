@@ -51,13 +51,13 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     let imagePicker = UIImagePickerController()
     imagePicker.delegate = self
     
-    if photoSourceControl.selectedSegmentIndex == 0 && photoLibraryIsAvailable {
-      imagePicker.sourceType = .photoLibrary
-      imagePicker.allowsEditing = true
-      present(imagePicker, animated: true, completion: nil)
-    } else if cameraIsAvailable {
+    if photoSourceControl.selectedSegmentIndex == 0 && cameraIsAvailable {
       imagePicker.sourceType = .camera
       imagePicker.allowsEditing = false
+      present(imagePicker, animated: true, completion: nil)
+    } else if photoLibraryIsAvailable {
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.allowsEditing = true
       present(imagePicker, animated: true, completion: nil)
     }
   }
@@ -94,7 +94,7 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
       return
     }
     
-    let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? userLocation : markerCoordinate
+    let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? markerCoordinate : userLocation
     let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
     newPlace.coordinate.formattedAddress { (address) in
       newPlace.address = address
