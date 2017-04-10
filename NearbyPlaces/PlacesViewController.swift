@@ -7,20 +7,23 @@
 
 import UIKit
 import GooglePlaces
+import GoogleMaps
 import MapKit
 
-class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate {
+class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
-  @IBOutlet weak var labelView: UIView!
-  @IBOutlet weak var placesViewHeight: NSLayoutConstraint!
   @IBOutlet weak var centerLocationButton: UIButton!
+  @IBOutlet weak var emptyUserPlacesLabel: UILabel!
+  
+  @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
   var locationManager = CLLocationManager()
   var placesClient = GMSPlacesClient()
   var nearbyPlaces: [Place] = []
   var typedPlaces: [Place] = []
+  var userPlaces: [Place] = []
   
   var userLocation: CLLocationCoordinate2D {
     guard let location = locationManager.location?.coordinate else {
@@ -30,7 +33,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     return location
   }
   
-  var placemark: CLPlacemark?
   var currentAddress = String()
   
   fileprivate var requestTimer = Timer()
@@ -38,13 +40,13 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    centerLocationButton.isHidden = true
     setupNavigationItem()
     setupMapView()
     setupLocationManager()
     setupPlacesClient()
     setupTableView()
     setupSearchBar()
+    showNearbyPlaces()
   }
   
   func setupNavigationItem() {
@@ -70,6 +72,9 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: - CLLocationManagerDelegate
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    self.mapView.setupMapRegion(locations.last!)
+    setupGeocoder(locations.last!)
+
     locationManager.stopUpdatingLocation()
   }
   
@@ -87,26 +92,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     print(error)
   }
   
-  // MARK: - MKMapViewDelegate
-  func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-    guard let location = userLocation.location else {
-      return
+  func setupGeocoder(_ location: CLLocation) {
+    location.coordinate.formattedAddress { (address) in
+      self.currentAddress = address ?? "Current address"
+      self.searchBar.text = address
     }
-    
-    self.mapView.setupMapRegion(location)
-    setupGeocoder(location)
-    showNearbyPlaces()
   }
   
-  func setupGeocoder(_ location: CLLocation) {
-    let geocoder = CLGeocoder()
-    geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-      if let placemark = placemarks?.first {
-        self.searchBar.updateSearchText(with: placemark)
-        self.placemark = placemark
-      }
-    }
-  }
+  // MARK: - MKMapViewDelegate
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if annotation is MKPointAnnotation {
@@ -151,27 +144,49 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   // MARK: - UITableViewDataSource
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return searchBar.isActive() ? 2 : 1
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if searchBar.isActive() {
-      return typedPlaces.count
+      return section == 0 ? typedPlaces.count : nearbyPlaces.count
+    } else {
+      if userPlaces.count == 0 {
+        emptyUserPlacesLabel.isHidden = false
+      } else {
+        emptyUserPlacesLabel.isHidden = true
+      }
+      return userPlaces.count
     }
-    return nearbyPlaces.count
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if searchBar.isActive() {
+      return section == 0 ? "Results" : "Nearby places"
+    } else {
+      return "My places"
+    }
+  }
+  
+  // MARK: UITableViewDelegate
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 35
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as? PlaceView else {
-      return UITableViewCell()
-    }
+    let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as! PlaceView
     
-    let row = indexPath.row
-    let data = chooseData(row)
+    let data = chooseData(forIndexPath: indexPath)
     cell.setupWithData(data)
     
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let data = chooseData(indexPath.row)
+    let data = chooseData(forIndexPath: indexPath)
     let address = data.address
     let coordinate = data.coordinate
     
@@ -196,32 +211,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     centerLocationButton.isHidden = true
   }
   
-  @IBAction func sendImageFromMapView(_ sender: AnyObject) {
-    performSegue(withIdentifier: "showChatVC", sender: nil)
-  }
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let destinationVC = segue.destination as? ChatViewController, segue.identifier == "showChatVC" else {
-      return
-    }
+    let destinationVC = segue.destination as! CreatorViewController
     
-    guard let mapViewImage = getImageFromView(mapView) else {
-      return
-    }
-    
-    destinationVC.image = mapViewImage
-  }
-  
-  func getImageFromView(_ view: UIView) -> UIImage? {
-    UIGraphicsBeginImageContext(view.bounds.size)
-    guard let context = UIGraphicsGetCurrentContext() else {
-      return nil
-    }
-    
-    view.layer.render(in: context)
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return image
+    destinationVC.markerCoordinate = mapView.centerCoordinate
+    destinationVC.userLocation = userLocation
+    destinationVC.delegate = self
   }
   
   func setupSearchBar() {
@@ -250,10 +245,18 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    guard let isEmpty = searchBar.text?.isEmpty, isEmpty else {
+      return
+    }
+    
     self.searchBar.changeSearchIcon()
     resizeTable()
     self.searchBar.updateSearchText(currentAddress)
     typedPlaces.removeAll()
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
   }
   
   func makeRequestForPlaces() {
@@ -381,11 +384,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func resizeTable() {
-    let frameHeight = view.frame.maxY
     if searchBar.isActive() {
-      placesViewHeight.constant = frameHeight - searchBar.frame.maxY
+      placesViewTopConstraint.constant -= placesView.frame.origin.y - searchBar.frame.maxY
+      emptyUserPlacesLabel.isHidden = true
     } else {
-      placesViewHeight.constant = frameHeight - labelView.frame.maxY
+      placesViewTopConstraint.constant = 0
+      if userPlaces.isEmpty {
+        emptyUserPlacesLabel.isHidden = false
+      }
     }
     placesView.reloadData()
     animateTableResizing()
@@ -394,13 +400,19 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func animateTableResizing() {
     UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(), animations: {
       self.placesView.layoutIfNeeded()
-      }, completion: nil)
+    }, completion: nil)
   }
   
-  func chooseData(_ row: Int) -> Place {
+  func chooseData(forIndexPath indexPath: IndexPath) -> Place {
     if searchBar.isActive() {
-      return typedPlaces[row]
+      return indexPath.section == 0 ? typedPlaces[indexPath.row] : nearbyPlaces[indexPath.row]
+    } else {
+      return userPlaces[indexPath.row]
     }
-    return nearbyPlaces[row]
+  }
+  
+  func didCreatePlace(_ place: Place) {
+    userPlaces.append(place)
+    placesView.reloadData()
   }
 }

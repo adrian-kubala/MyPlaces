@@ -37,8 +37,16 @@ class PlaceView: UITableViewCell {
   }
   
   fileprivate func setupPhoto(_ photo: UIImage) {
-    self.photo.layer.cornerRadius = photo.size.width/2
+    let photoWidth = self.photo.frame.size.width
+    self.photo.layer.cornerRadius = photoWidth / 2
     self.photo.clipsToBounds = true
-    self.photo.image = photo
+    if photo.size.width > 40 {
+      let scaledPhoto = photo.scaleImage(width: photoWidth)
+      self.photo.image = scaledPhoto.cropToBounds(width: photoWidth, height: photoWidth)
+    } else {
+      self.photo.image = photo
+    }
+    
+    
   }
 }
