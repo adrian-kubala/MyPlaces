@@ -386,8 +386,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func resizeTable() {
     if searchBar.isActive() {
       placesViewTopConstraint.constant -= placesView.frame.origin.y - searchBar.frame.maxY
+      emptyUserPlacesLabel.isHidden = true
     } else {
       placesViewTopConstraint.constant = 0
+      if userPlaces.isEmpty {
+        emptyUserPlacesLabel.isHidden = false
+      }
     }
     placesView.reloadData()
     animateTableResizing()
