@@ -31,7 +31,8 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
   }
   
   private func setupNavigationBar() {
-    navigationController?.navigationBar.tintColor = UIColor.black
+//    navigationController?.navigationBar.tintColor = UIColor.black
+//    navigationController?.navigationBar.backgroundColor = nil
   }
   
   private func setupSubviews() {

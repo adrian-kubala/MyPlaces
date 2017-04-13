@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0900D1B2DD7A059471F1EE17 /* Pods_MyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2877FF5F66236382D19545CA /* Pods_MyPlaces.framework */; };
 		3A00521F1E773F68002B71F3 /* Koszalin, Poland.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */; };
 		3A121D111E95AA750037CCED /* TopSlicedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D101E95AA750037CCED /* TopSlicedButton.swift */; };
 		3A121D141E95B66F0037CCED /* SliceSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D131E95B66F0037CCED /* SliceSide.swift */; };
@@ -31,11 +32,11 @@
 		3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */; };
 		3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */; };
 		3AFF21431D9DC407005A3AA0 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */; };
-		A6612042F63430072BB7083E /* Pods_NearbyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2877FF5F66236382D19545CA /* Pods_MyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DD36B9B341011636911BDC2 /* Pods-MyPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyPlaces/Pods-MyPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 		3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Koszalin, Poland.gpx"; sourceTree = "<group>"; };
 		3A121D101E95AA750037CCED /* TopSlicedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopSlicedButton.swift; sourceTree = "<group>"; };
 		3A121D131E95B66F0037CCED /* SliceSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceSide.swift; sourceTree = "<group>"; };
@@ -48,7 +49,7 @@
 		3A72F5A71D8A6FCD00BA2F16 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3A72F5A91D8A751F00BA2F16 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A8B47DE1D9BCD6900901F86 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		3A8C0E901D8A6D1C00F538B0 /* NearbyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8C0E901D8A6D1C00F538B0 /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8C0E931D8A6D1C00F538B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A8C0E981D8A6D1D00F538B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,8 +63,7 @@
 		3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationitem.swift; sourceTree = "<group>"; };
 		3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resizing.swift"; sourceTree = "<group>"; };
 		3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
-		3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.debug.xcconfig"; sourceTree = "<group>"; };
-		854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.release.xcconfig"; sourceTree = "<group>"; };
+		A776EF81288ACF0CFA76F320 /* Pods-MyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyPlaces/Pods-MyPlaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A72F5AA1D8A751F00BA2F16 /* MapKit.framework in Frameworks */,
-				A6612042F63430072BB7083E /* Pods_NearbyPlaces.framework in Frameworks */,
+				0900D1B2DD7A059471F1EE17 /* Pods_MyPlaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +135,22 @@
 		3A8C0E871D8A6D1C00F538B0 = {
 			isa = PBXGroup;
 			children = (
-				3A8C0E921D8A6D1C00F538B0 /* NearbyPlaces */,
+				3A8C0E921D8A6D1C00F538B0 /* MyPlaces */,
 				3A8C0E911D8A6D1C00F538B0 /* Products */,
 				F4B5849B592095F042FADBBC /* Frameworks */,
-				7BF511B4FD4226C268D1ED58 /* Pods */,
+				C88EDBE7153C897F8256702A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		3A8C0E911D8A6D1C00F538B0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A8C0E901D8A6D1C00F538B0 /* NearbyPlaces.app */,
+				3A8C0E901D8A6D1C00F538B0 /* MyPlaces.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A8C0E921D8A6D1C00F538B0 /* NearbyPlaces */ = {
+		3A8C0E921D8A6D1C00F538B0 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
 				3A8C0E931D8A6D1C00F538B0 /* AppDelegate.swift */,
@@ -163,7 +163,7 @@
 				3A0052201E774023002B71F3 /* Storyboards */,
 				3A00521D1E773F43002B71F3 /* Resources */,
 			);
-			path = NearbyPlaces;
+			path = MyPlaces;
 			sourceTree = "<group>";
 		};
 		3AF51AAA1D9C294E0039D426 /* Extensions */ = {
@@ -192,11 +192,11 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		7BF511B4FD4226C268D1ED58 /* Pods */ = {
+		C88EDBE7153C897F8256702A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */,
-				854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */,
+				2DD36B9B341011636911BDC2 /* Pods-MyPlaces.debug.xcconfig */,
+				A776EF81288ACF0CFA76F320 /* Pods-MyPlaces.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				3A72F5A91D8A751F00BA2F16 /* MapKit.framework */,
-				01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */,
+				2877FF5F66236382D19545CA /* Pods_MyPlaces.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,24 +213,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A8C0E8F1D8A6D1C00F538B0 /* NearbyPlaces */ = {
+		3A8C0E8F1D8A6D1C00F538B0 /* MyPlaces */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A8C0EB81D8A6D1D00F538B0 /* Build configuration list for PBXNativeTarget "NearbyPlaces" */;
+			buildConfigurationList = 3A8C0EB81D8A6D1D00F538B0 /* Build configuration list for PBXNativeTarget "MyPlaces" */;
 			buildPhases = (
-				D00726310FCF62D40F05ABDC /* [CP] Check Pods Manifest.lock */,
+				7862EE28F2FCB31E47C9BBF9 /* [CP] Check Pods Manifest.lock */,
 				3A8C0E8C1D8A6D1C00F538B0 /* Sources */,
 				3A8C0E8D1D8A6D1C00F538B0 /* Frameworks */,
 				3A8C0E8E1D8A6D1C00F538B0 /* Resources */,
-				0B33EA81B9A0CF469ADC367F /* [CP] Embed Pods Frameworks */,
-				8752595E8965363BB948DBDC /* [CP] Copy Pods Resources */,
+				9BAA2D7ABFCB6E26C05469A8 /* [CP] Embed Pods Frameworks */,
+				36C82F6AA4D923D2286490E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NearbyPlaces;
+			name = MyPlaces;
 			productName = Places;
-			productReference = 3A8C0E901D8A6D1C00F538B0 /* NearbyPlaces.app */;
+			productReference = 3A8C0E901D8A6D1C00F538B0 /* MyPlaces.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -250,7 +250,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3A8C0E8B1D8A6D1C00F538B0 /* Build configuration list for PBXProject "NearbyPlaces" */;
+			buildConfigurationList = 3A8C0E8B1D8A6D1C00F538B0 /* Build configuration list for PBXProject "MyPlaces" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -263,7 +263,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A8C0E8F1D8A6D1C00F538B0 /* NearbyPlaces */,
+				3A8C0E8F1D8A6D1C00F538B0 /* MyPlaces */,
 			);
 		};
 /* End PBXProject section */
@@ -283,22 +283,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B33EA81B9A0CF469ADC367F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8752595E8965363BB948DBDC /* [CP] Copy Pods Resources */ = {
+		36C82F6AA4D923D2286490E4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,10 +295,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyPlaces/Pods-MyPlaces-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D00726310FCF62D40F05ABDC /* [CP] Check Pods Manifest.lock */ = {
+		7862EE28F2FCB31E47C9BBF9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -326,6 +311,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9BAA2D7ABFCB6E26C05469A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyPlaces/Pods-MyPlaces-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -471,14 +471,14 @@
 		};
 		3A8C0EB91D8A6D1D00F538B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */;
+			baseConfigurationReference = 2DD36B9B341011636911BDC2 /* Pods-MyPlaces.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = E84ETWJ5XP;
-				INFOPLIST_FILE = NearbyPlaces/Info.plist;
+				INFOPLIST_FILE = MyPlaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.adrian-kubala.NearbyPlaces";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adrian-kubala.MyPlaces";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -486,14 +486,14 @@
 		};
 		3A8C0EBA1D8A6D1D00F538B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */;
+			baseConfigurationReference = A776EF81288ACF0CFA76F320 /* Pods-MyPlaces.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = E84ETWJ5XP;
-				INFOPLIST_FILE = NearbyPlaces/Info.plist;
+				INFOPLIST_FILE = MyPlaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.adrian-kubala.NearbyPlaces";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adrian-kubala.MyPlaces";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -502,7 +502,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A8C0E8B1D8A6D1C00F538B0 /* Build configuration list for PBXProject "NearbyPlaces" */ = {
+		3A8C0E8B1D8A6D1C00F538B0 /* Build configuration list for PBXProject "MyPlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A8C0EB61D8A6D1D00F538B0 /* Debug */,
@@ -511,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A8C0EB81D8A6D1D00F538B0 /* Build configuration list for PBXNativeTarget "NearbyPlaces" */ = {
+		3A8C0EB81D8A6D1D00F538B0 /* Build configuration list for PBXNativeTarget "MyPlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A8C0EB91D8A6D1D00F538B0 /* Debug */,

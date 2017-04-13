@@ -1,6 +1,6 @@
 //
 //  UIView+Image.swift
-//  NearbyPlaces
+//  MyPlaces
 //
 //  Created by Adrian Kubała on 04.04.2017.
 //  Copyright © 2017 Adrian Kubała. All rights reserved.
