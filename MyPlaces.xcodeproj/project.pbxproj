@@ -130,7 +130,7 @@
 		3A8C0E871D8A6D1C00F538B0 = {
 			isa = PBXGroup;
 			children = (
-				3A8C0E921D8A6D1C00F538B0 /* NearbyPlaces */,
+				3A8C0E921D8A6D1C00F538B0 /* MyPlaces */,
 				3A8C0E911D8A6D1C00F538B0 /* Products */,
 				F4B5849B592095F042FADBBC /* Frameworks */,
 			);
@@ -144,7 +144,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A8C0E921D8A6D1C00F538B0 /* NearbyPlaces */ = {
+		3A8C0E921D8A6D1C00F538B0 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
 				3A8C0E931D8A6D1C00F538B0 /* AppDelegate.swift */,
@@ -157,7 +157,7 @@
 				3A0052201E774023002B71F3 /* Storyboards */,
 				3A00521D1E773F43002B71F3 /* Resources */,
 			);
-			path = NearbyPlaces;
+			path = MyPlaces;
 			sourceTree = "<group>";
 		};
 		3AF51AAA1D9C294E0039D426 /* Extensions */ = {
