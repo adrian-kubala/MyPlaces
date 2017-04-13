@@ -2,5 +2,6 @@
 use_frameworks!
 
 target 'NearbyPlaces' do
-  pod 'GooglePlacePicker', '~> 2.1'
+  pod 'GoogleMaps', '~> 2.2'
+  pod 'GooglePlaces', '~> 2.2'
 end

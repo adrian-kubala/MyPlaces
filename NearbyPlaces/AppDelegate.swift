@@ -6,9 +6,8 @@
 //  Copyright © 2016 Adrian Kubała. All rights reserved.
 //
 
-import UIKit
-import GooglePlaces
 import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

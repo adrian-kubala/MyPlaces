@@ -6,7 +6,6 @@
 //  Copyright © 2017 Adrian Kubała. All rights reserved.
 //
 
-import CoreLocation
 import GoogleMaps
 
 extension CLLocationCoordinate2D {

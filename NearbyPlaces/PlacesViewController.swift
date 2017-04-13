@@ -5,9 +5,7 @@
 //  Copyright © 2016 Adrian Kubała. All rights reserved.
 //
 
-import UIKit
 import GooglePlaces
-import GoogleMaps
 import MapKit
 
 class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate {

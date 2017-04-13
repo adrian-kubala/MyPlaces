@@ -6,7 +6,6 @@
 //  Copyright © 2016 Adrian Kubała. All rights reserved.
 //
 
-import UIKit
 import MapKit
 
 class CustomMapView: MKMapView {
