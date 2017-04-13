@@ -31,11 +31,9 @@
 		3AFF213D1D9DADD1005A3AA0 /* CustomNavigationitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */; };
 		3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */; };
 		3AFF21431D9DC407005A3AA0 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */; };
-		A6612042F63430072BB7083E /* Pods_NearbyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A00521E1E773F68002B71F3 /* Koszalin, Poland.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Koszalin, Poland.gpx"; sourceTree = "<group>"; };
 		3A121D101E95AA750037CCED /* TopSlicedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopSlicedButton.swift; sourceTree = "<group>"; };
 		3A121D131E95B66F0037CCED /* SliceSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliceSide.swift; sourceTree = "<group>"; };
@@ -62,8 +60,6 @@
 		3AFF213C1D9DADD1005A3AA0 /* CustomNavigationitem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationitem.swift; sourceTree = "<group>"; };
 		3AFF213E1D9DB662005A3AA0 /* UIImage+Resizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resizing.swift"; sourceTree = "<group>"; };
 		3AFF21421D9DC407005A3AA0 /* CustomMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
-		3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.debug.xcconfig"; sourceTree = "<group>"; };
-		854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +68,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A72F5AA1D8A751F00BA2F16 /* MapKit.framework in Frameworks */,
-				A6612042F63430072BB7083E /* Pods_NearbyPlaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +133,6 @@
 				3A8C0E921D8A6D1C00F538B0 /* NearbyPlaces */,
 				3A8C0E911D8A6D1C00F538B0 /* Products */,
 				F4B5849B592095F042FADBBC /* Frameworks */,
-				7BF511B4FD4226C268D1ED58 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,20 +186,10 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		7BF511B4FD4226C268D1ED58 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */,
-				854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F4B5849B592095F042FADBBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				3A72F5A91D8A751F00BA2F16 /* MapKit.framework */,
-				01D9BED10520DB38DED414B4 /* Pods_NearbyPlaces.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -217,12 +201,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A8C0EB81D8A6D1D00F538B0 /* Build configuration list for PBXNativeTarget "NearbyPlaces" */;
 			buildPhases = (
-				D00726310FCF62D40F05ABDC /* [CP] Check Pods Manifest.lock */,
 				3A8C0E8C1D8A6D1C00F538B0 /* Sources */,
 				3A8C0E8D1D8A6D1C00F538B0 /* Frameworks */,
 				3A8C0E8E1D8A6D1C00F538B0 /* Resources */,
-				0B33EA81B9A0CF469ADC367F /* [CP] Embed Pods Frameworks */,
-				8752595E8965363BB948DBDC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,54 +262,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0B33EA81B9A0CF469ADC367F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8752595E8965363BB948DBDC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D00726310FCF62D40F05ABDC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A8C0E8C1D8A6D1C00F538B0 /* Sources */ = {
@@ -471,7 +404,6 @@
 		};
 		3A8C0EB91D8A6D1D00F538B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FE2B3BA2027569E5B0E5723 /* Pods-NearbyPlaces.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -486,7 +418,6 @@
 		};
 		3A8C0EBA1D8A6D1D00F538B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 854BCFFDBA4F2C5B4F78F532 /* Pods-NearbyPlaces.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
