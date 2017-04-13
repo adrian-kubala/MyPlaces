@@ -146,7 +146,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   // MARK: - UITableViewDataSource
   
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return true
+    return !searchBar.isActive() ? true : false
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
