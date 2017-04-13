@@ -145,6 +145,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: - UITableViewDataSource
   
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
   func numberOfSections(in tableView: UITableView) -> Int {
     return searchBar.isActive() ? 2 : 1
   }
@@ -194,6 +198,17 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     currentAddress = address!
     clearSearchBarText()
     resizeTable()
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      if searchBar.isActive() {
+        _ = indexPath.section == 0 ? typedPlaces.remove(at: indexPath.row) : nearbyPlaces.remove(at: indexPath.row)
+      } else {
+        _ = userPlaces.remove(at: indexPath.row)
+      }
+      tableView.reloadData()
+    }
   }
   
   func clearSearchBarText() {
