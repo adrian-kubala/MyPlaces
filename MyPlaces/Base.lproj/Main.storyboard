@@ -80,7 +80,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So8-85-PNk">
-                                                    <rect key="frame" x="56" y="8" width="309" height="20"/>
+                                                    <rect key="frame" x="56" y="5" width="309" height="20"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Uf-iyF">
-                                                    <rect key="frame" x="56" y="28" width="309" height="13"/>
+                                                    <rect key="frame" x="56" y="25" width="309" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -101,7 +101,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tuU-Uf-iyF" firstAttribute="top" secondItem="So8-85-PNk" secondAttribute="bottom" constant="-5" id="4Ae-9J-SJF"/>
-                                                <constraint firstAttribute="bottom" secondItem="tuU-Uf-iyF" secondAttribute="bottom" constant="8" id="GT1-t2-Bm3"/>
+                                                <constraint firstAttribute="bottom" secondItem="tuU-Uf-iyF" secondAttribute="bottom" constant="5" id="GT1-t2-Bm3"/>
                                                 <constraint firstItem="2fK-U9-DmG" firstAttribute="leading" secondItem="u2L-8l-fkg" secondAttribute="leading" constant="8" id="Jve-Wy-DUt"/>
                                                 <constraint firstAttribute="trailing" secondItem="tuU-Uf-iyF" secondAttribute="trailing" constant="10" id="Nn8-aV-qdS"/>
                                                 <constraint firstAttribute="trailing" secondItem="So8-85-PNk" secondAttribute="trailing" constant="10" id="O6Z-h4-vGR"/>
@@ -109,7 +109,7 @@
                                                 <constraint firstItem="tuU-Uf-iyF" firstAttribute="leading" secondItem="2fK-U9-DmG" secondAttribute="trailing" constant="8" id="Xf3-mg-Tdd"/>
                                                 <constraint firstItem="2fK-U9-DmG" firstAttribute="top" secondItem="u2L-8l-fkg" secondAttribute="top" constant="2" id="mHF-ye-LxN"/>
                                                 <constraint firstItem="tuU-Uf-iyF" firstAttribute="top" secondItem="So8-85-PNk" secondAttribute="bottom" id="oQ6-w5-bh5"/>
-                                                <constraint firstItem="So8-85-PNk" firstAttribute="top" secondItem="u2L-8l-fkg" secondAttribute="top" constant="8" id="vrk-cq-rOD"/>
+                                                <constraint firstItem="So8-85-PNk" firstAttribute="top" secondItem="u2L-8l-fkg" secondAttribute="top" constant="5" id="vrk-cq-rOD"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
