@@ -48,11 +48,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
+    guard !searchBar.isActive() else {
+      return
+    }
+    
     if sender.state == .began {
       let tapLocation = sender.location(in: placesView)
       if let tapIndexPath = placesView.indexPathForRow(at: tapLocation) {
         let tappedCell = placesView.cellForRow(at: tapIndexPath) as! PlaceView
-        print(tappedCell.name)
         performSegue(withIdentifier: "editPlace", sender: nil)
       }
     }
