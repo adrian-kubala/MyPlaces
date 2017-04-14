@@ -55,9 +55,11 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     if sender.state == .began {
       let tapLocation = sender.location(in: placesView)
       if let tapIndexPath = placesView.indexPathForRow(at: tapLocation) {
-        let tappedCell = placesView.cellForRow(at: tapIndexPath) as! PlaceView
-        let editPlaceViewController = storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController")
-        navigationController?.pushViewController(editPlaceViewController!, animated: true)
+        let placeToEdit = userPlaces[tapIndexPath.row]
+        let editPlaceViewController = storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as! EditPlaceViewController
+        editPlaceViewController.place = placeToEdit
+        
+        navigationController?.pushViewController(editPlaceViewController, animated: true)
       }
     }
   }
