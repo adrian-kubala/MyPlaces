@@ -45,6 +45,20 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupTableView()
     setupSearchBar()
     showNearbyPlaces()
+    
+    let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(editPlaces(recognizer:)))
+    placesView.addGestureRecognizer(longPressGestureRecognizer)
+  }
+  
+  func editPlaces(recognizer: UILongPressGestureRecognizer) {
+    if recognizer.state == .began {
+      let tapLocation = recognizer.location(in: placesView)
+      if let tapIndexPath = placesView.indexPathForRow(at: tapLocation) {
+        let tappedCell = placesView.cellForRow(at: tapIndexPath) as! PlaceView
+        print(tappedCell.name)
+        
+      }
+    }
   }
   
   func setupNavigationItem() {
