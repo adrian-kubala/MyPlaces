@@ -57,12 +57,13 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="x5Q-fJ-pGt" kind="show" identifier="showChatVC" id="wjx-op-Sf0"/>
+                                    <segue destination="x5Q-fJ-pGt" kind="show" identifier="showCreatorVC" id="wjx-op-Sf0"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-dh-IDV">
                                 <rect key="frame" x="0.0" y="364" width="375" height="303"/>
                                 <color key="backgroundColor" red="0.87589908559577678" green="0.87589908559577678" blue="0.87589908559577678" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexColor" red="0.81568627449999997" green="0.99607843139999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,10 +118,12 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="address" destination="tuU-Uf-iyF" id="BUk-ez-8RM"/>
                                             <outlet property="name" destination="So8-85-PNk" id="gmM-sU-gSG"/>
                                             <outlet property="photo" destination="2fK-U9-DmG" id="CkJ-bh-8tL"/>
+                                            <outletCollection property="gestureRecognizers" destination="TUQ-co-7XJ" appends="YES" id="mNN-8j-Jqq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -182,6 +185,7 @@
                         <outlet property="placesViewTopConstraint" destination="S2Z-s9-vWY" id="U05-Tp-t76"/>
                         <outlet property="searchBar" destination="Oou-t2-KuA" id="EqF-2A-vkH"/>
                         <outlet property="searchDisplayController" destination="YuF-Zb-Ejd" id="VOm-zv-o6R"/>
+                        <segue destination="igo-4I-UL2" kind="presentation" identifier="editPlace" id="5O5-Rl-tIC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -193,8 +197,31 @@
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="8HS-dM-pUU"/>
                     </connections>
                 </searchDisplayController>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="TUQ-co-7XJ">
+                    <connections>
+                        <action selector="editPlace:" destination="BYZ-38-t0r" id="Qwp-wh-CPB"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1116" y="347.67616191904051"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0gn-SQ-0MT">
+            <objects>
+                <viewController id="igo-4I-UL2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0VO-A2-RzY"/>
+                        <viewControllerLayoutGuide type="bottom" id="MfZ-1B-FYL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WTM-j7-HTU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1215686275" green="0.45098039220000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xO-IK-wML" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="1070"/>
         </scene>
         <!--Creator View Controller-->
         <scene sceneID="LbR-6e-P52">
@@ -344,7 +371,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

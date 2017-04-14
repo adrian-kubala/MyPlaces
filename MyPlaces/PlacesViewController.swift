@@ -45,18 +45,15 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupTableView()
     setupSearchBar()
     showNearbyPlaces()
-    
-    let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(editPlaces(recognizer:)))
-    placesView.addGestureRecognizer(longPressGestureRecognizer)
   }
   
-  func editPlaces(recognizer: UILongPressGestureRecognizer) {
-    if recognizer.state == .began {
-      let tapLocation = recognizer.location(in: placesView)
+  @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
+    if sender.state == .began {
+      let tapLocation = sender.location(in: placesView)
       if let tapIndexPath = placesView.indexPathForRow(at: tapLocation) {
         let tappedCell = placesView.cellForRow(at: tapIndexPath) as! PlaceView
         print(tappedCell.name)
-        
+        performSegue(withIdentifier: "editPlace", sender: nil)
       }
     }
   }
@@ -239,11 +236,14 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let destinationVC = segue.destination as! CreatorViewController
-    
-    destinationVC.markerCoordinate = mapView.centerCoordinate
-    destinationVC.userLocation = userLocation
-    destinationVC.delegate = self
+    if segue.identifier == "showCreatorVC" {
+      let destinationVC = segue.destination as! CreatorViewController
+      destinationVC.markerCoordinate = mapView.centerCoordinate
+      destinationVC.userLocation = userLocation
+      destinationVC.delegate = self
+    } else {
+//      let destinationVC = segue.destination as! UIViewController
+    }
   }
   
   func setupSearchBar() {
