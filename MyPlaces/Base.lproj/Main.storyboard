@@ -136,7 +136,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No places have been added yet" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQA-wa-tPA" userLabel="Empty User Places Label">
-                                <rect key="frame" x="112" y="488" width="151" height="56"/>
+                                <rect key="frame" x="112.5" y="488" width="150" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56.5" id="P88-4q-E7f"/>
                                     <constraint firstAttribute="width" secondItem="iQA-wa-tPA" secondAttribute="height" multiplier="75:28" id="YXj-Kh-8fs"/>
@@ -317,6 +317,10 @@
                             <constraint firstItem="kF4-sK-fN1" firstAttribute="top" secondItem="WTM-j7-HTU" secondAttribute="top" constant="20" id="zdK-VT-0nD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="placeImageView" destination="Jf4-ed-zVx" id="mth-tL-Bg5"/>
+                        <outlet property="placeNameTextField" destination="Ka0-D7-Iwt" id="rk4-4l-iUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xO-IK-wML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -470,7 +474,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

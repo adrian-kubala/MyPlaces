@@ -10,12 +10,16 @@ import UIKit
 
 class EditPlaceViewController: UIViewController {
   
+  @IBOutlet weak var placeImageView: UIImageView!
+  @IBOutlet weak var placeNameTextField: UITextField!
+  
   var place: Place!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+    placeNameTextField.text = place.name
+    placeImageView.image = place.photo
   }
   
 }
