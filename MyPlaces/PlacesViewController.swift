@@ -241,8 +241,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       destinationVC.markerCoordinate = mapView.centerCoordinate
       destinationVC.userLocation = userLocation
       destinationVC.delegate = self
-    } else {
-//      let destinationVC = segue.destination as! UIViewController
     }
   }
   
