@@ -69,19 +69,19 @@
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="RV9-W1-ZoG" userLabel="Blank View">
-                                    <rect key="frame" x="0.0" y="123.5" width="375" height="6"/>
+                                    <rect key="frame" x="0.0" y="124" width="375" height="6"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeView" rowHeight="50" id="yNA-yO-VkB" customClass="PlaceView" customModule="MyPlaces" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNA-yO-VkB" id="u2L-8l-fkg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So8-85-PNk">
-                                                    <rect key="frame" x="56" y="5" width="309" height="20"/>
+                                                    <rect key="frame" x="56" y="5" width="309" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Uf-iyF">
-                                                    <rect key="frame" x="56" y="25" width="309" height="19.5"/>
+                                                    <rect key="frame" x="56" y="26" width="309" height="19"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -269,27 +269,47 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5r6-Ig-cl2" userLabel="Apply Button" customClass="TopSlicedButton" customModule="MyPlaces" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="586" width="375" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="Dm2-yA-TXN"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="61" id="ciB-UU-I8N"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="35" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="APPLY">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPlace" destination="x5Q-fJ-pGt" eventType="touchUpInside" id="y0n-0v-y11"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fdR-DZ-dlh" firstAttribute="leading" secondItem="Jf4-ed-zVx" secondAttribute="leading" constant="19" id="2Lw-7w-BBW"/>
                                     <constraint firstItem="Ka0-D7-Iwt" firstAttribute="leading" secondItem="hhS-Fz-jcD" secondAttribute="leading" id="5xq-21-Syp"/>
                                     <constraint firstItem="BKV-vn-Snz" firstAttribute="trailing" secondItem="Ka0-D7-Iwt" secondAttribute="trailing" id="6Eh-eF-9MQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="5r6-Ig-cl2" secondAttribute="bottom" id="8h1-8z-i9t"/>
                                     <constraint firstItem="hhS-Fz-jcD" firstAttribute="trailing" secondItem="Jf4-ed-zVx" secondAttribute="trailing" id="J2j-vZ-ehj"/>
                                     <constraint firstItem="hhS-Fz-jcD" firstAttribute="top" secondItem="Jf4-ed-zVx" secondAttribute="bottom" constant="10" id="KdL-ym-Pub"/>
                                     <constraint firstItem="hhS-Fz-jcD" firstAttribute="leading" secondItem="Jf4-ed-zVx" secondAttribute="leading" id="QUq-hI-CoS"/>
                                     <constraint firstItem="Jf4-ed-zVx" firstAttribute="top" secondItem="kF4-sK-fN1" secondAttribute="topMargin" constant="70" id="QW0-3U-GKc"/>
                                     <constraint firstItem="fdR-DZ-dlh" firstAttribute="bottom" secondItem="Jf4-ed-zVx" secondAttribute="bottom" constant="-15" id="Uf4-BW-48F"/>
                                     <constraint firstItem="Ka0-D7-Iwt" firstAttribute="top" secondItem="hhS-Fz-jcD" secondAttribute="bottom" constant="7" id="Ym8-K9-zRE"/>
+                                    <constraint firstItem="5r6-Ig-cl2" firstAttribute="leading" secondItem="kF4-sK-fN1" secondAttribute="leading" id="dNG-75-OLh"/>
                                     <constraint firstAttribute="trailing" secondItem="Jf4-ed-zVx" secondAttribute="trailing" constant="20" id="ebg-7O-cnR"/>
                                     <constraint firstItem="BKV-vn-Snz" firstAttribute="leading" secondItem="Ka0-D7-Iwt" secondAttribute="leading" id="irM-Hb-ucn"/>
                                     <constraint firstItem="BKV-vn-Snz" firstAttribute="top" secondItem="Ka0-D7-Iwt" secondAttribute="bottom" constant="7" id="lkJ-AD-4TV"/>
+                                    <constraint firstAttribute="trailing" secondItem="5r6-Ig-cl2" secondAttribute="trailing" id="nPh-0y-dWj"/>
                                     <constraint firstItem="Jf4-ed-zVx" firstAttribute="leading" secondItem="kF4-sK-fN1" secondAttribute="leading" constant="20" id="xWQ-Fr-KGQ"/>
                                     <constraint firstItem="Ka0-D7-Iwt" firstAttribute="trailing" secondItem="hhS-Fz-jcD" secondAttribute="trailing" id="xtm-SH-MyA"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.78823529411764703" green="0.99607843137254903" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kF4-sK-fN1" secondAttribute="trailing" id="IAj-JF-jyT"/>
                             <constraint firstItem="kF4-sK-fN1" firstAttribute="leading" secondItem="WTM-j7-HTU" secondAttribute="leading" id="ISu-ca-RYY"/>
@@ -450,7 +470,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

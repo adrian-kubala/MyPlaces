@@ -9,6 +9,7 @@
 import UIKit
 
 class CustomButton: UIButton, Sliced {
+  
   override func draw(_ rect: CGRect) {
     drawSlicedView(sliceSide:.bottom(offset: 5))
   }
