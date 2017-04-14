@@ -210,7 +210,7 @@
         <!--View Controller-->
         <scene sceneID="0gn-SQ-0MT">
             <objects>
-                <viewController id="igo-4I-UL2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditPlaceViewController" id="igo-4I-UL2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0VO-A2-RzY"/>
                         <viewControllerLayoutGuide type="bottom" id="MfZ-1B-FYL"/>
