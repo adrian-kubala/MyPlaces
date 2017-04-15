@@ -99,6 +99,7 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
     newPlace.coordinate.formattedAddress { (address) in
       newPlace.address = address
+      newPlace.addressDidObtain?()
     }
     
     delegate?.didCreatePlace(newPlace)

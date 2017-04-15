@@ -15,6 +15,8 @@ class Place {
   var coordinate: CLLocationCoordinate2D
   var photo: UIImage
   
+  var addressDidObtain: (() -> ())?
+  
   init(name: String, address: String?, coordinate: CLLocationCoordinate2D, photo: UIImage, userLocation: CLLocationCoordinate2D) {
     self.name = name
     self.address = address

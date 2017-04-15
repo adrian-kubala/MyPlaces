@@ -194,12 +194,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
   }
   
-  // MARK: UITableViewDelegate
-  
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 35
-  }
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as! PlaceView
     
@@ -207,6 +201,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     cell.setupWithData(data)
     
     return cell
+  }
+  
+  // MARK: UITableViewDelegate
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 35
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
