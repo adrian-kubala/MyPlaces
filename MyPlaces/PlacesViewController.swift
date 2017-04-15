@@ -47,6 +47,40 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupTableView()
     setupSearchBar()
     showNearbyPlaces()
+    
+    
+    guard let appDelegate =
+      UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+      appDelegate.persistentContainer.viewContext
+    
+    let fetchRequest =
+      NSFetchRequest<NSManagedObject>(entityName: "PlaceObject")
+    
+    do {
+      let placeObjects = try managedContext.fetch(fetchRequest)
+      userPlaces = placeObjects.map { (object) -> Place in
+        let name = object.value(forKey: "name") as! String
+        let address = object.value(forKey: "address") as? String
+        _ = object.value(forKey: "distance") as! Int
+        
+        
+        let latitude = object.value(forKey: "latitude") as! Double
+        let longitude = object.value(forKey: "longitude") as! Double
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let dataPhoto = object.value(forKey: "photo") as! Data
+        let photo = UIImage(data: dataPhoto)
+        
+        return Place(name: name, address: address, coordinate: coordinate, photo: photo!, userLocation: userLocation)
+      }
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+    
   }
   
   @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
