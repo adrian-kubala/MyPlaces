@@ -7,6 +7,7 @@
 
 import GooglePlaces
 import MapKit
+import CoreData
 
 class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate, EditPlaceViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
@@ -466,6 +467,39 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     } else {
       mapView.mapType = .standard
       mapTypeButton.backgroundColor = placesView.backgroundColor
+    }
+  }
+  
+  func save() {
+    
+    guard let appDelegate =
+      UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+      appDelegate.persistentContainer.viewContext
+    
+    let entity =
+      NSEntityDescription.entity(forEntityName: "PlaceObject",
+                                 in: managedContext)!
+    
+    let placeObject = NSManagedObject(entity: entity,
+                                 insertInto: managedContext)
+    
+    let place = userPlaces[0]
+    placeObject.setValue(place.name, forKeyPath: "name")
+    placeObject.setValue(place.distance, forKeyPath: "distance")
+    placeObject.setValue(place.coordinate.latitude, forKeyPath: "latitude")
+    placeObject.setValue(place.coordinate.longitude, forKeyPath: "longitude")
+    
+    let dataImage = UIImagePNGRepresentation(place.photo)
+    placeObject.setValue(dataImage, forKey: "photo")
+    
+    do {
+      try managedContext.save()
+    } catch let error as NSError {
+      print("Could not save. \(error), \(error.userInfo)")
     }
   }
   
