@@ -23,6 +23,8 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
   
   weak var delegate: CreatorViewControllerDelegate?
   
+  var didChoosePlacePhoto = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -68,6 +70,7 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     placeImageView.image = originalImage
+    didChoosePlacePhoto = true
     dismiss(animated: true, completion: nil)
   }
   
@@ -90,7 +93,11 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? markerCoordinate : userLocation
+
     let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
+    if !didChoosePlacePhoto {
+      newPlace.photo = #imageLiteral(resourceName: "av-location")
+    }
     newPlace.coordinate.formattedAddress { (address) in
       newPlace.address = address
       newPlace.addressDidObtain?()
