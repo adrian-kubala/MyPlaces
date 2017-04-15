@@ -15,8 +15,15 @@ class PlaceView: UITableViewCell {
   
   func setupWithData(_ place: Place) {
     setupName(place.name)
-    setupAddress(place.address, distance: place.distance)
     setupPhoto(place.photo)
+    
+    if let address = place.address {
+      setupAddress(address, distance: place.distance)
+    } else {
+      place.addressDidObtain = {
+        self.setupAddress(place.address, distance: place.distance)
+      }
+    }
   }
   
   fileprivate func setupName(_ name: String) {
@@ -25,6 +32,8 @@ class PlaceView: UITableViewCell {
   
   fileprivate func setupAddress(_ address: String?, distance: Int) {
     guard let address = address else {
+      
+      
       return
     }
     
