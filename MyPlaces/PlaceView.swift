@@ -17,11 +17,10 @@ class PlaceView: UITableViewCell {
     setupName(place.name)
     setupPhoto(place.photo)
     
-    if let address = place.address {
-      setupAddress(address, distance: place.distance)
-    } else {
-      place.addressDidObtain = {
-        self.setupAddress(place.address, distance: place.distance)
+    setupAddress(place.address, distance: place.distance)
+    if place.address == nil {
+      place.addressDidObtain = { [weak self] in
+        self?.setupAddress(place.address, distance: place.distance)
       }
     }
   }
@@ -31,17 +30,11 @@ class PlaceView: UITableViewCell {
   }
   
   fileprivate func setupAddress(_ address: String?, distance: Int) {
-    guard let address = address else {
-      
-      
-      return
-    }
-    
     if distance < 1000 {
-      self.address.text = String(distance) + " m" + " | " + address
+      self.address.text = String(distance) + " m" + " | " + (address ?? "")
     } else {
       let distanceInKM = Double(distance) / 1000
-      self.address.text = String(format: "%.2f", distanceInKM) + " km" + " | " + address
+      self.address.text = String(format: "%.2f", distanceInKM) + " km" + " | " + (address ?? "")
     }
   }
   
