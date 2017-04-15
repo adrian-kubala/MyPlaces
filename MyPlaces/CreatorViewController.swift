@@ -26,13 +26,7 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupNavigationBar()
     setupSubviews()
-  }
-  
-  private func setupNavigationBar() {
-//    navigationController?.navigationBar.tintColor = UIColor.black
-//    navigationController?.navigationBar.backgroundColor = nil
   }
   
   private func setupSubviews() {
