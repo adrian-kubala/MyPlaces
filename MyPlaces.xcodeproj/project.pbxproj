@@ -26,6 +26,7 @@
 		3A8C0E991D8A6D1D00F538B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E971D8A6D1D00F538B0 /* Main.storyboard */; };
 		3A8C0E9B1D8A6D1D00F538B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */; };
 		3A8C0E9E1D8A6D1D00F538B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8C0E9C1D8A6D1D00F538B0 /* LaunchScreen.storyboard */; };
+		3A9801851EA2DFFF00FE8A95 /* MyPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A9801831EA2DFFF00FE8A95 /* MyPlaces.xcdatamodeld */; };
 		3AA460B71E943F35004F4A9F /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA460B61E943F35004F4A9F /* UIView+Image.swift */; };
 		3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */; };
 		3AF51AB01D9C45F60039D426 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF51AAF1D9C45F60039D426 /* CustomView.swift */; };
@@ -59,6 +60,7 @@
 		3A8C0E9A1D8A6D1D00F538B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A8C0E9D1D8A6D1D00F538B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8C0E9F1D8A6D1D00F538B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9801841EA2DFFF00FE8A95 /* MyPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyPlaces.xcdatamodel; sourceTree = "<group>"; };
 		3AA460B61E943F35004F4A9F /* UIView+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
 		3AF51AAB1D9C297A0039D426 /* UIImageView+TintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+TintColor.swift"; sourceTree = "<group>"; };
 		3AF51AAF1D9C45F60039D426 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				3AF51AAA1D9C294E0039D426 /* Extensions */,
 				3A0052201E774023002B71F3 /* Storyboards */,
 				3A00521D1E773F43002B71F3 /* Resources */,
+				3A9801831EA2DFFF00FE8A95 /* MyPlaces.xcdatamodeld */,
 			);
 			path = MyPlaces;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				3A72F5A81D8A6FCD00BA2F16 /* Place.swift in Sources */,
 				3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */,
 				3A8B47DF1D9BCD6900901F86 /* CustomButton.swift in Sources */,
+				3A9801851EA2DFFF00FE8A95 /* MyPlaces.xcdatamodeld in Sources */,
 				3AF807E01D9851F8007E4BA7 /* PlaceView.swift in Sources */,
 				3AA460B71E943F35004F4A9F /* UIView+Image.swift in Sources */,
 				3AF807DD1D97FBC6007E4BA7 /* CreatorViewController.swift in Sources */,
@@ -426,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -468,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -529,6 +533,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A9801831EA2DFFF00FE8A95 /* MyPlaces.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A9801841EA2DFFF00FE8A95 /* MyPlaces.xcdatamodel */,
+			);
+			currentVersion = 3A9801841EA2DFFF00FE8A95 /* MyPlaces.xcdatamodel */;
+			path = MyPlaces.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3A8C0E881D8A6D1C00F538B0 /* Project object */;
 }
