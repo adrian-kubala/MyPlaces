@@ -223,14 +223,14 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="Jf4-ed-zVx" userLabel="Place Image View">
-                                        <rect key="frame" x="20" y="78" width="335" height="335"/>
+                                        <rect key="frame" x="40" y="70" width="295" height="295"/>
                                         <color key="backgroundColor" red="0.87058823529999996" green="0.87843137250000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Jf4-ed-zVx" secondAttribute="height" multiplier="1:1" id="DOz-xI-3sE"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of your place" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ka0-D7-Iwt" userLabel="Place Name Text Field">
-                                        <rect key="frame" x="20" y="454" width="335" height="30"/>
+                                        <rect key="frame" x="40" y="406" width="295" height="30"/>
                                         <color key="backgroundColor" red="0.87058823529999996" green="0.87843137250000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
@@ -241,7 +241,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdR-DZ-dlh" userLabel="Add Photo Button">
-                                        <rect key="frame" x="39" y="376" width="22" height="22"/>
+                                        <rect key="frame" x="59" y="328" width="22" height="22"/>
                                         <color key="backgroundColor" red="0.81960784310000001" green="0.99607843139999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fdR-DZ-dlh" secondAttribute="height" multiplier="1:1" id="XxA-4f-Baz"/>
@@ -255,7 +255,7 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BKV-vn-Snz" userLabel="Photo Source Control">
-                                        <rect key="frame" x="20" y="491" width="335" height="29"/>
+                                        <rect key="frame" x="40" y="443" width="295" height="29"/>
                                         <color key="backgroundColor" red="0.81568627449999997" green="0.99607843139999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="Take a picture"/>
@@ -264,7 +264,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit place:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhS-Fz-jcD" userLabel="Edit Place Label">
-                                        <rect key="frame" x="20" y="423" width="335" height="24"/>
+                                        <rect key="frame" x="40" y="375" width="295" height="24"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -293,18 +293,18 @@
                                     <constraint firstItem="Ka0-D7-Iwt" firstAttribute="leading" secondItem="hhS-Fz-jcD" secondAttribute="leading" id="5xq-21-Syp"/>
                                     <constraint firstItem="BKV-vn-Snz" firstAttribute="trailing" secondItem="Ka0-D7-Iwt" secondAttribute="trailing" id="6Eh-eF-9MQ"/>
                                     <constraint firstAttribute="bottom" secondItem="5r6-Ig-cl2" secondAttribute="bottom" id="8h1-8z-i9t"/>
+                                    <constraint firstItem="Jf4-ed-zVx" firstAttribute="top" secondItem="kF4-sK-fN1" secondAttribute="top" constant="70" id="IqA-pc-Dx3"/>
                                     <constraint firstItem="hhS-Fz-jcD" firstAttribute="trailing" secondItem="Jf4-ed-zVx" secondAttribute="trailing" id="J2j-vZ-ehj"/>
                                     <constraint firstItem="hhS-Fz-jcD" firstAttribute="top" secondItem="Jf4-ed-zVx" secondAttribute="bottom" constant="10" id="KdL-ym-Pub"/>
                                     <constraint firstItem="hhS-Fz-jcD" firstAttribute="leading" secondItem="Jf4-ed-zVx" secondAttribute="leading" id="QUq-hI-CoS"/>
-                                    <constraint firstItem="Jf4-ed-zVx" firstAttribute="top" secondItem="kF4-sK-fN1" secondAttribute="topMargin" constant="70" id="QW0-3U-GKc"/>
                                     <constraint firstItem="fdR-DZ-dlh" firstAttribute="bottom" secondItem="Jf4-ed-zVx" secondAttribute="bottom" constant="-15" id="Uf4-BW-48F"/>
                                     <constraint firstItem="Ka0-D7-Iwt" firstAttribute="top" secondItem="hhS-Fz-jcD" secondAttribute="bottom" constant="7" id="Ym8-K9-zRE"/>
                                     <constraint firstItem="5r6-Ig-cl2" firstAttribute="leading" secondItem="kF4-sK-fN1" secondAttribute="leading" id="dNG-75-OLh"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jf4-ed-zVx" secondAttribute="trailing" constant="20" id="ebg-7O-cnR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jf4-ed-zVx" secondAttribute="trailing" constant="40" id="ebg-7O-cnR"/>
                                     <constraint firstItem="BKV-vn-Snz" firstAttribute="leading" secondItem="Ka0-D7-Iwt" secondAttribute="leading" id="irM-Hb-ucn"/>
                                     <constraint firstItem="BKV-vn-Snz" firstAttribute="top" secondItem="Ka0-D7-Iwt" secondAttribute="bottom" constant="7" id="lkJ-AD-4TV"/>
                                     <constraint firstAttribute="trailing" secondItem="5r6-Ig-cl2" secondAttribute="trailing" id="nPh-0y-dWj"/>
-                                    <constraint firstItem="Jf4-ed-zVx" firstAttribute="leading" secondItem="kF4-sK-fN1" secondAttribute="leading" constant="20" id="xWQ-Fr-KGQ"/>
+                                    <constraint firstItem="Jf4-ed-zVx" firstAttribute="leading" secondItem="kF4-sK-fN1" secondAttribute="leading" constant="40" id="xWQ-Fr-KGQ"/>
                                     <constraint firstItem="Ka0-D7-Iwt" firstAttribute="trailing" secondItem="hhS-Fz-jcD" secondAttribute="trailing" id="xtm-SH-MyA"/>
                                 </constraints>
                             </view>
@@ -477,7 +477,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
