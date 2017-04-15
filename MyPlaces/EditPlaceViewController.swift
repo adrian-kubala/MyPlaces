@@ -25,6 +25,9 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
     
     placeNameTextField.text = place.name
     placeImageView.image = place.photo
+    if placeImageView.image == #imageLiteral(resourceName: "av-location") {
+      placeImageView.contentMode = .center
+    }
     setupSubviews()
   }
   
@@ -66,6 +69,7 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     placeImageView.image = originalImage
+    placeImageView.contentMode = .scaleAspectFill
     dismiss(animated: true, completion: nil)
   }
   

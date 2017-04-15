@@ -26,13 +26,7 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupNavigationBar()
     setupSubviews()
-  }
-  
-  private func setupNavigationBar() {
-//    navigationController?.navigationBar.tintColor = UIColor.black
-//    navigationController?.navigationBar.backgroundColor = nil
   }
   
   private func setupSubviews() {
@@ -96,7 +90,11 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? markerCoordinate : userLocation
+
     let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
+    if placeImageView.image == #imageLiteral(resourceName: "photo-camera") {
+      newPlace.photo = #imageLiteral(resourceName: "av-location")
+    }
     newPlace.coordinate.formattedAddress { (address) in
       newPlace.address = address
       newPlace.addressDidObtain?()

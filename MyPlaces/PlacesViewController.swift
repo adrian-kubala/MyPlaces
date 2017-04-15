@@ -76,6 +76,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func setupMapView() {
     mapView.delegate = self
+    centerLocationButton.layer.cornerRadius = 5
   }
   
   func setupPlacesClient() {
