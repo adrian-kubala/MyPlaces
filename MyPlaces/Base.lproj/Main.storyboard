@@ -284,6 +284,7 @@
                                         </state>
                                         <connections>
                                             <action selector="addPlace" destination="x5Q-fJ-pGt" eventType="touchUpInside" id="y0n-0v-y11"/>
+                                            <action selector="applyChanges" destination="igo-4I-UL2" eventType="touchUpInside" id="du7-Ma-wUq"/>
                                         </connections>
                                     </button>
                                 </subviews>
