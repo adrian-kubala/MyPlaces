@@ -9,6 +9,7 @@
 import UIKit
 
 class PlaceView: UITableViewCell {
+  
   @IBOutlet weak var name: UILabel!
   @IBOutlet weak var address: UILabel!
   @IBOutlet weak var photo: UIImageView!
@@ -25,20 +26,20 @@ class PlaceView: UITableViewCell {
     }
   }
   
-  fileprivate func setupName(_ name: String) {
+  private func setupName(_ name: String) {
     self.name.text = name
   }
   
-  fileprivate func setupAddress(_ address: String?, distance: Int) {
-    if distance < 1000 {
-      self.address.text = String(distance) + " m" + " | " + (address ?? "")
-    } else {
-      let distanceInKM = Double(distance) / 1000
-      self.address.text = String(format: "%.2f", distanceInKM) + " km" + " | " + (address ?? "")
+  private func setupAddress(_ address: String?, distance: Int) {
+    var distanceText = distance < 1000 ? "\(distance) m" : String(format: "%.2f", Double(distance) / 1000) + " km"
+    if let address = address {
+      distanceText += " | \(address)"
     }
+    
+    self.address.text = distanceText
   }
   
-  fileprivate func setupPhoto(_ photo: UIImage) {
+  private func setupPhoto(_ photo: UIImage) {
     let photoWidth = self.photo.frame.size.width
     self.photo.layer.cornerRadius = photoWidth / 2
     self.photo.clipsToBounds = true
@@ -48,7 +49,6 @@ class PlaceView: UITableViewCell {
     } else {
       self.photo.image = photo
     }
-    
-    
   }
+  
 }
