@@ -458,6 +458,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func didCreatePlace(_ place: Place) {
     userPlaces.append(place)
     sortPlacesByDistance()
+    save()
   }
   
   @IBAction func toggleMapType(_ sender: Any) {
