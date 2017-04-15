@@ -13,6 +13,8 @@ class EditPlaceViewController: UIViewController {
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var placeNameTextField: UITextField!
   
+  weak var delegate: EditPlaceViewControllerDelegate?
+  
   var place: Place!
   
   override func viewDidLoad() {

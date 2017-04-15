@@ -8,7 +8,7 @@
 import GooglePlaces
 import MapKit
 
-class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate {
+class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate, EditPlaceViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
@@ -58,10 +58,15 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
         let placeToEdit = userPlaces[tapIndexPath.row]
         let editPlaceViewController = storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as! EditPlaceViewController
         editPlaceViewController.place = placeToEdit
+        editPlaceViewController.delegate = self
         
         navigationController?.pushViewController(editPlaceViewController, animated: true)
       }
     }
+  }
+  
+  func didEditPlace() {
+    placesView.reloadData()
   }
   
   func setupNavigationItem() {
