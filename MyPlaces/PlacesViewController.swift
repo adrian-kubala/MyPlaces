@@ -8,7 +8,7 @@
 import GooglePlaces
 import MapKit
 
-class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate {
+class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate, EditPlaceViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
   @IBOutlet weak var mapView: CustomMapView!
   @IBOutlet weak var placesView: UITableView!
@@ -47,6 +47,28 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     showNearbyPlaces()
   }
   
+  @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
+    guard !searchBar.isActive() else {
+      return
+    }
+    
+    if sender.state == .began {
+      let tapLocation = sender.location(in: placesView)
+      if let tapIndexPath = placesView.indexPathForRow(at: tapLocation) {
+        let placeToEdit = userPlaces[tapIndexPath.row]
+        let editPlaceViewController = storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as! EditPlaceViewController
+        editPlaceViewController.place = placeToEdit
+        editPlaceViewController.delegate = self
+        
+        navigationController?.pushViewController(editPlaceViewController, animated: true)
+      }
+    }
+  }
+  
+  func didEditPlace() {
+    placesView.reloadData()
+  }
+  
   func setupNavigationItem() {
     let navigationItem = self.navigationItem as! CustomNavigationitem
     navigationItem.setupIcon("map-location")
@@ -54,6 +76,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func setupMapView() {
     mapView.delegate = self
+    centerLocationButton.layer.cornerRadius = 5
   }
   
   func setupPlacesClient() {
@@ -172,12 +195,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
   }
   
-  // MARK: UITableViewDelegate
-  
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 35
-  }
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "placeView") as! PlaceView
     
@@ -185,6 +202,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     cell.setupWithData(data)
     
     return cell
+  }
+  
+  // MARK: UITableViewDelegate
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 35
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -225,11 +248,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let destinationVC = segue.destination as! CreatorViewController
-    
-    destinationVC.markerCoordinate = mapView.centerCoordinate
-    destinationVC.userLocation = userLocation
-    destinationVC.delegate = self
+    if segue.identifier == "showCreatorVC" {
+      let destinationVC = segue.destination as! CreatorViewController
+      destinationVC.markerCoordinate = mapView.centerCoordinate
+      destinationVC.userLocation = userLocation
+      destinationVC.delegate = self
+    }
   }
   
   func setupSearchBar() {

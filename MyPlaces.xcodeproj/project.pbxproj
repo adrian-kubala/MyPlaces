@@ -14,8 +14,10 @@
 		3A121D171E95B69B0037CCED /* Sliced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A121D161E95B69B0037CCED /* Sliced.swift */; };
 		3A2484E81E97F08000D7BB58 /* CreatorViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2484E71E97F08000D7BB58 /* CreatorViewControllerDelegate.swift */; };
 		3A2484EA1E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2484E91E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift */; };
+		3A2DD3621EA1906300785D43 /* EditPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DD3611EA1906300785D43 /* EditPlaceViewController.swift */; };
 		3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */; };
 		3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */; };
+		3A3ECA491EA2955D00171B73 /* EditPlaceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3ECA481EA2955D00171B73 /* EditPlaceViewControllerDelegate.swift */; };
 		3A5F64EB1D95150F00FF8645 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */; };
 		3A72F5A81D8A6FCD00BA2F16 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72F5A71D8A6FCD00BA2F16 /* Place.swift */; };
 		3A72F5AA1D8A751F00BA2F16 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A72F5A91D8A751F00BA2F16 /* MapKit.framework */; };
@@ -43,8 +45,10 @@
 		3A121D161E95B69B0037CCED /* Sliced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sliced.swift; sourceTree = "<group>"; };
 		3A2484E71E97F08000D7BB58 /* CreatorViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorViewControllerDelegate.swift; sourceTree = "<group>"; };
 		3A2484E91E98043B00D7BB58 /* CLLocationCoordinate2D+Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Address.swift"; sourceTree = "<group>"; };
+		3A2DD3611EA1906300785D43 /* EditPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlaceViewController.swift; sourceTree = "<group>"; };
 		3A2E72F11D9CF1C6008CDE51 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		3A2E72F51D9D245D008CDE51 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		3A3ECA481EA2955D00171B73 /* EditPlaceViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlaceViewControllerDelegate.swift; sourceTree = "<group>"; };
 		3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		3A72F5A71D8A6FCD00BA2F16 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3A72F5A91D8A751F00BA2F16 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -111,6 +115,7 @@
 			children = (
 				3A5F64EA1D95150F00FF8645 /* PlacesViewController.swift */,
 				3AF807DC1D97FBC6007E4BA7 /* CreatorViewController.swift */,
+				3A2DD3611EA1906300785D43 /* EditPlaceViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			children = (
 				3A121D161E95B69B0037CCED /* Sliced.swift */,
 				3A2484E71E97F08000D7BB58 /* CreatorViewControllerDelegate.swift */,
+				3A3ECA481EA2955D00171B73 /* EditPlaceViewControllerDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				3A2484E81E97F08000D7BB58 /* CreatorViewControllerDelegate.swift in Sources */,
 				3AFF213F1D9DB662005A3AA0 /* UIImage+Resizing.swift in Sources */,
 				3AFF21431D9DC407005A3AA0 /* CustomMapView.swift in Sources */,
+				3A3ECA491EA2955D00171B73 /* EditPlaceViewControllerDelegate.swift in Sources */,
 				3A2E72F61D9D245D008CDE51 /* CustomSearchBar.swift in Sources */,
 				3A72F5A81D8A6FCD00BA2F16 /* Place.swift in Sources */,
 				3A2E72F21D9CF1C6008CDE51 /* CustomNavigationBar.swift in Sources */,
@@ -353,6 +360,7 @@
 				3A8C0E941D8A6D1C00F538B0 /* AppDelegate.swift in Sources */,
 				3A121D171E95B69B0037CCED /* Sliced.swift in Sources */,
 				3AF51AAC1D9C297A0039D426 /* UIImageView+TintColor.swift in Sources */,
+				3A2DD3621EA1906300785D43 /* EditPlaceViewController.swift in Sources */,
 				3A121D141E95B66F0037CCED /* SliceSide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

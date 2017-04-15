@@ -1,31 +1,33 @@
 //
-//  ChatViewController.swift
-//  Places
+//  EditPlaceViewController.swift
+//  MyPlaces
 //
-//  Created by Adrian on 25.09.2016.
-//  Copyright © 2016 Adrian Kubała. All rights reserved.
+//  Created by Adrian Kubała on 15.04.2017.
+//  Copyright © 2017 Adrian Kubała. All rights reserved.
 //
 
 import UIKit
-import CoreLocation
 
-class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
   @IBOutlet weak var placeImageView: UIImageView!
-  @IBOutlet weak var photoSourceControl: UISegmentedControl!
-  @IBOutlet weak var coordinateControl: UISegmentedControl!
-  @IBOutlet weak var addPhotoButton: UIButton!
-  @IBOutlet weak var addPlaceButton: TopSlicedButton!
   @IBOutlet weak var placeNameTextField: UITextField!
+  @IBOutlet weak var photoSourceControl: UISegmentedControl!
+  @IBOutlet weak var addPhotoButton: UIButton!
+  @IBOutlet weak var applyButton: TopSlicedButton!
   
-  var userLocation: CLLocationCoordinate2D?
-  var markerCoordinate: CLLocationCoordinate2D?
+  weak var delegate: EditPlaceViewControllerDelegate?
   
-  weak var delegate: CreatorViewControllerDelegate?
+  var place: Place!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    placeNameTextField.text = place.name
+    placeImageView.image = place.photo
+    if placeImageView.image == #imageLiteral(resourceName: "av-location") {
+      placeImageView.contentMode = .center
+    }
     setupSubviews()
   }
   
@@ -34,12 +36,11 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     placeImageView.layer.cornerRadius = cornerRadius
     photoSourceControl.layer.cornerRadius = cornerRadius
-    coordinateControl.layer.cornerRadius = cornerRadius
     addPhotoButton.layer.cornerRadius = addPhotoButton.bounds.size.width / 2
   }
   
   @IBAction func addPicture(_ sender: Any) {
-  
+    
     let cameraIsAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
     let photoLibraryIsAvailable = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
     
@@ -68,6 +69,7 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     placeImageView.image = originalImage
+    placeImageView.contentMode = .scaleAspectFill
     dismiss(animated: true, completion: nil)
   }
   
@@ -75,10 +77,10 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
     textField.resignFirstResponder()
     return true
   }
-
-  @IBAction func addPlace() {
+  
+  @IBAction func applyChanges() {
     guard let isEmpty = placeNameTextField.text?.isEmpty, isEmpty == false else {
-      let alertController = UIAlertController(title: "Did not enter title", message: "You need to enter a title to add a new place.", preferredStyle: .alert)
+      let alertController = UIAlertController(title: "Did not provide a new title", message: "You need to enter a title to add a new place.", preferredStyle: .alert)
       let alertAction = UIAlertAction(title: "OK", style: .default) { action in
         self.placeNameTextField.becomeFirstResponder()
       }
@@ -89,18 +91,10 @@ class CreatorViewController: UIViewController, UIImagePickerControllerDelegate, 
       return
     }
     
-    let newPlaceCoordinate = coordinateControl.selectedSegmentIndex == 0 ? markerCoordinate : userLocation
-
-    let newPlace = Place(name: placeNameTextField.text!, address: nil, coordinate: newPlaceCoordinate!, photo: placeImageView.image!, userLocation: userLocation!)
-    if placeImageView.image == #imageLiteral(resourceName: "photo-camera") {
-      newPlace.photo = #imageLiteral(resourceName: "av-location")
-    }
-    newPlace.coordinate.formattedAddress { (address) in
-      newPlace.address = address
-      newPlace.addressDidObtain?()
-    }
+    place.name = placeNameTextField.text!
+    place.photo = placeImageView.image!
     
-    delegate?.didCreatePlace(newPlace)
+    delegate?.didEditPlace()
     _ = navigationController?.popViewController(animated: true)
   }
   
