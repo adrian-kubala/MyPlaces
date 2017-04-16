@@ -10,7 +10,11 @@ import GooglePlaces
 
 class Place {
   var name: String
-  var address: String?
+  var address: String? {
+    didSet {
+      NotificationCenter.default.post(name: Notification.Name("AddressDidObtain"), object: self)
+    }
+  }
   var distance: Int = 0
   var coordinate: CLLocationCoordinate2D
   var photo: UIImage

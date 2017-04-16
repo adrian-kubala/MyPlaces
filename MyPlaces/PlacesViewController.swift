@@ -81,6 +81,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       print("Could not fetch. \(error), \(error.userInfo)")
     }
     
+    NotificationCenter.default.addObserver(forName: Notification.Name("AddressDidObtain"), object: nil, queue: nil) { [unowned self] notification in
+      self.save()
+    }
+    
   }
   
   @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
@@ -537,6 +541,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     } catch let error as NSError {
       print("Could not save. \(error), \(error.userInfo)")
     }
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
   
 }
