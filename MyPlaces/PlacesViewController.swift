@@ -520,16 +520,17 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
                                  in: managedContext)!
     
     let placeObject = NSManagedObject(entity: entity,
-                                 insertInto: managedContext)
-    
-    let place = userPlaces[0]
-    placeObject.setValue(place.name, forKeyPath: "name")
-    placeObject.setValue(place.distance, forKeyPath: "distance")
-    placeObject.setValue(place.coordinate.latitude, forKeyPath: "latitude")
-    placeObject.setValue(place.coordinate.longitude, forKeyPath: "longitude")
-    
-    let dataImage = UIImagePNGRepresentation(place.photo)
-    placeObject.setValue(dataImage, forKey: "photo")
+                                      insertInto: managedContext)
+    _ = userPlaces.map {
+      placeObject.setValue($0.name, forKeyPath: "name")
+      placeObject.setValue($0.distance, forKeyPath: "distance")
+      placeObject.setValue($0.coordinate.latitude, forKeyPath: "latitude")
+      placeObject.setValue($0.coordinate.longitude, forKeyPath: "longitude")
+      placeObject.setValue($0.address, forKey: "address")
+      
+      let dataImage = UIImagePNGRepresentation($0.photo)
+      placeObject.setValue(dataImage, forKey: "photo")
+    }
     
     do {
       try managedContext.save()
