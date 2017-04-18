@@ -224,6 +224,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     mapView.setupMapRegionWithCoordinate(coordinate)
     currentAddress = address!
     clearSearchBarText()
+    searchBar.resignFirstResponder()
     resizeTable()
   }
   
