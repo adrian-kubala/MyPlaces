@@ -31,7 +31,7 @@ class CustomSearchBar: UISearchBar {
     setupTextFieldBackgroundColor()
     setupClearButton()
     autocapitalizationType = .none
-    text = "Current location"
+    text = " "
   }
   
   fileprivate func setupTextFieldBackgroundColor() {
