@@ -14,6 +14,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   @IBOutlet weak var placesView: UITableView!
   @IBOutlet weak var centerLocationButton: UIButton!
   @IBOutlet weak var emptyUserPlacesLabel: UILabel!
+  @IBOutlet weak var mapTypeButton: UIButton!
   
   @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
@@ -77,6 +78,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func setupMapView() {
     mapView.delegate = self
     centerLocationButton.layer.cornerRadius = 5
+    mapTypeButton.layer.cornerRadius = 5
   }
   
   func setupPlacesClient() {
@@ -95,7 +97,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     self.mapView.setupMapRegion(locations.last!)
     setupGeocoder(locations.last!)
-
+    
     locationManager.stopUpdatingLocation()
   }
   
@@ -456,4 +458,15 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     userPlaces.append(place)
     sortPlacesByDistance()
   }
+  
+  @IBAction func toggleMapType(_ sender: Any) {
+    if mapView.mapType == .standard {
+      mapView.mapType = .hybrid
+      mapTypeButton.backgroundColor = mapTypeButton.tintColor
+    } else {
+      mapView.mapType = .standard
+      mapTypeButton.backgroundColor = placesView.backgroundColor
+    }
+  }
+  
 }
