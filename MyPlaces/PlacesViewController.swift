@@ -271,6 +271,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     self.searchBar.changeSearchIcon()
     resizeTable()
     searchBar.text?.removeAll()
+    searchBar.setShowsCancelButton(true, animated: true)
   }
   
   func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
@@ -290,6 +291,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     resizeTable()
     self.searchBar.updateSearchText(currentAddress)
     typedPlaces.removeAll()
+    searchBar.setShowsCancelButton(false, animated: true)
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
