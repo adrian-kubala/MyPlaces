@@ -206,6 +206,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: UITableViewDelegate
   
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    if searchBar.isActive() {
+      searchBar.resignFirstResponder()
+    }
+  }
+  
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 35
   }
@@ -244,6 +250,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
     
     mapView.setupMapRegion(userLocation)
+    setupGeocoder(userLocation)
     centerLocationButton.isHidden = true
   }
   
@@ -262,6 +269,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   // MARK: - UISearchBarDelegate
+  
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     requestTimer.invalidate()
     requestTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlacesViewController.makeRequestForPlaces), userInfo: nil, repeats: false)
@@ -271,29 +279,30 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     self.searchBar.changeSearchIcon()
     resizeTable()
     searchBar.text?.removeAll()
+    searchBar.setShowsCancelButton(true, animated: true)
   }
   
   func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-    if self.searchBar.isActive() {
-      searchBar.resignFirstResponder()
-      return true
-    }
-    return false
+    return self.searchBar.isActive()
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    guard let isEmpty = searchBar.text?.isEmpty, isEmpty else {
-      return
+    if searchBar.text?.isEmpty ?? true {
+      searchBar.text = " "
     }
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
     
     self.searchBar.changeSearchIcon()
     resizeTable()
     self.searchBar.updateSearchText(currentAddress)
     typedPlaces.removeAll()
-  }
-  
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    searchBar.resignFirstResponder()
   }
   
   func makeRequestForPlaces() {
@@ -423,6 +432,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       if userPlaces.isEmpty {
         emptyUserPlacesLabel.isHidden = false
       }
+      searchBar.setShowsCancelButton(false, animated: true)
     }
     placesView.reloadData()
     animateTableResizing()
