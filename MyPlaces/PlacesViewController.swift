@@ -206,6 +206,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: UITableViewDelegate
   
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    if searchBar.isActive() {
+      searchBar.resignFirstResponder()
+    }
+  }
+  
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 35
   }
@@ -291,7 +297,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     resizeTable()
     self.searchBar.updateSearchText(currentAddress)
     typedPlaces.removeAll()
-    searchBar.setShowsCancelButton(false, animated: true)
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -429,6 +434,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       if userPlaces.isEmpty {
         emptyUserPlacesLabel.isHidden = false
       }
+      searchBar.setShowsCancelButton(false, animated: true)
     }
     placesView.reloadData()
     animateTableResizing()
