@@ -403,15 +403,9 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func sortPlacesByDistance() {
-    if searchBar.isActive() {
-      typedPlaces.sort {
-        $0.distance < $1.distance
-      }
-    } else {
-      nearbyPlaces.sort {
-        $0.distance < $1.distance
-      }
-    }
+    typedPlaces.sort { $0.distance < $1.distance }
+    nearbyPlaces.sort { $0.distance < $1.distance }
+    userPlaces.sort { $0.distance < $1.distance }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -450,6 +444,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func didCreatePlace(_ place: Place) {
     userPlaces.append(place)
-    placesView.reloadData()
+    sortPlacesByDistance()
   }
 }
