@@ -298,6 +298,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     searchBar.resignFirstResponder()
   }
   
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+  }
+  
   func makeRequestForPlaces() {
     guard let searchText = searchBar.text, searchText.isEmpty == false else {
       _ = searchBarShouldEndEditing(searchBar)
