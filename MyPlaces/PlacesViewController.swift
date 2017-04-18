@@ -151,7 +151,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
     
     self.mapView.showAnnotation()
-    self.mapView.setupMapRegionWithCoordinate(center)
     searchBar.setupSearchIcon()
     centerLocationButton.isHidden = false
     
