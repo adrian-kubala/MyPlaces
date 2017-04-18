@@ -146,14 +146,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-4j-oXk" userLabel="Map Type Button">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-4j-oXk" userLabel="Map Type Button">
                                 <rect key="frame" x="331" y="261" width="27" height="27"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="jc6-2Z-Jx5"/>
                                     <constraint firstAttribute="height" constant="27" id="uPe-6V-JZc"/>
                                 </constraints>
-                                <state key="normal" image="loc-current"/>
+                                <state key="normal" image="map-type"/>
                                 <connections>
                                     <action selector="centerMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUn-CX-DpC"/>
                                 </connections>
@@ -492,7 +492,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -510,6 +510,7 @@
     </scenes>
     <resources>
         <image name="loc-current" width="20" height="20"/>
+        <image name="map-type" width="20" height="20"/>
         <image name="photo-camera" width="335" height="335"/>
     </resources>
     <color key="tintColor" red="0.81960784313725488" green="0.99607843137254903" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
