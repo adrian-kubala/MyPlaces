@@ -270,11 +270,26 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      if searchBar.isActive() {
-        _ = indexPath.section == 0 ? typedPlaces.remove(at: indexPath.row) : nearbyPlaces.remove(at: indexPath.row)
-      } else {
-        _ = userPlaces.remove(at: indexPath.row)
+      let removedPlace = userPlaces.remove(at: indexPath.row)
+      
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let managedContext = appDelegate.persistentContainer.viewContext
+      
+      let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PlaceObject")
+      if let results = try? managedContext.fetch(fetchRequest) {
+        for placeObject in results {
+          if placeObject.value(forKey: "name") as! String == removedPlace.name {
+            managedContext.delete(placeObject)
+            do {
+              try managedContext.save()
+            } catch {
+              print(error.localizedDescription)
+            }
+            break
+          }
+        }
       }
+      
       tableView.reloadData()
     }
   }
