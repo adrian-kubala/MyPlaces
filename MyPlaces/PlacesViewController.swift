@@ -250,6 +250,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
     
     mapView.setupMapRegion(userLocation)
+    setupGeocoder(userLocation)
     centerLocationButton.isHidden = true
   }
   
