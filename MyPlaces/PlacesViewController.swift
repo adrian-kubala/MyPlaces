@@ -470,7 +470,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func sortPlacesByDistance() {
     typedPlaces.sort { $0.distance < $1.distance }
     nearbyPlaces.sort { $0.distance < $1.distance }
-    userPlaces.sort { $0.distance < $1.distance }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -510,8 +509,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func didCreatePlace(_ place: Place) {
     userPlaces.append(place)
-    sortPlacesByDistance()
-//    save()
   }
   
   @IBAction func toggleMapType(_ sender: Any) {
