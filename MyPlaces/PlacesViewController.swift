@@ -269,6 +269,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   // MARK: - UISearchBarDelegate
+  
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     requestTimer.invalidate()
     requestTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlacesViewController.makeRequestForPlaces), userInfo: nil, repeats: false)
@@ -282,11 +283,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-    if self.searchBar.isActive() {
-      searchBar.resignFirstResponder()
-      return true
-    }
-    return false
+    return self.searchBar.isActive()
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
