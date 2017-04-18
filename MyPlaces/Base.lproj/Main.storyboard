@@ -27,6 +27,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wue-zY-o69" customClass="CustomMapView" customModule="MyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="103" width="375" height="200"/>
                             </mapView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-4j-oXk" userLabel="Map Type Button">
+                                <rect key="frame" x="331" y="261" width="27" height="27"/>
+                                <color key="backgroundColor" red="0.89710962772369385" green="0.90125763416290283" blue="0.89721816778182983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="jc6-2Z-Jx5"/>
+                                    <constraint firstAttribute="height" constant="27" id="uPe-6V-JZc"/>
+                                </constraints>
+                                <state key="normal" image="map-type"/>
+                                <connections>
+                                    <action selector="centerMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUn-CX-DpC"/>
+                                    <action selector="toggleMapType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O51-14-AXK"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-QF-ahZ">
                                 <rect key="frame" x="17" y="261" width="27" height="27"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,19 +159,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-4j-oXk" userLabel="Map Type Button">
-                                <rect key="frame" x="331" y="261" width="27" height="27"/>
-                                <color key="backgroundColor" red="0.89710962772369385" green="0.90125763416290283" blue="0.89721816778182983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="27" id="jc6-2Z-Jx5"/>
-                                    <constraint firstAttribute="height" constant="27" id="uPe-6V-JZc"/>
-                                </constraints>
-                                <state key="normal" image="map-type"/>
-                                <connections>
-                                    <action selector="centerMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUn-CX-DpC"/>
-                                    <action selector="toggleMapType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O51-14-AXK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.81176470588235294" green="0.99607843137254903" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -494,7 +494,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
