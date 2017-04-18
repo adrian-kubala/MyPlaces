@@ -441,7 +441,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func chooseData(forIndexPath indexPath: IndexPath) -> Place {
-    if searchBar.isActive() {
+    if placesView.numberOfSections == 2 {
       return indexPath.section == 0 ? typedPlaces[indexPath.row] : nearbyPlaces[indexPath.row]
     } else {
       return userPlaces[indexPath.row]
