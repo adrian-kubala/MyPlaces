@@ -46,7 +46,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupPlacesClient()
     setupTableView()
     setupSearchBar()
-    showNearbyPlaces()
     
     
     guard let appDelegate =
@@ -145,6 +144,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     case .denied, .notDetermined, .restricted:
       print("Authorization error")
     default:
+      showNearbyPlaces()
       locationManager.startUpdatingLocation()
     }
   }
