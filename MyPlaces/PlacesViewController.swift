@@ -7,6 +7,7 @@
 
 import GooglePlaces
 import MapKit
+import CoreData
 
 class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate, EditPlaceViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
@@ -46,6 +47,44 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupTableView()
     setupSearchBar()
     showNearbyPlaces()
+    
+    
+    guard let appDelegate =
+      UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+      appDelegate.persistentContainer.viewContext
+    
+    let fetchRequest =
+      NSFetchRequest<NSManagedObject>(entityName: "PlaceObject")
+    
+    do {
+      let placeObjects = try managedContext.fetch(fetchRequest)
+      userPlaces = placeObjects.map { (object) -> Place in
+        let name = object.value(forKey: "name") as! String
+        let address = object.value(forKey: "address") as? String
+        _ = object.value(forKey: "distance") as! Int
+        
+        
+        let latitude = object.value(forKey: "latitude") as! Double
+        let longitude = object.value(forKey: "longitude") as! Double
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let dataPhoto = object.value(forKey: "photo") as! Data
+        let photo = UIImage(data: dataPhoto)
+        
+        return Place(name: name, address: address, coordinate: coordinate, photo: photo!, userLocation: userLocation)
+      }
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+    
+    NotificationCenter.default.addObserver(forName: Notification.Name("AddressDidObtain"), object: nil, queue: nil) { [unowned self] notification in
+      self.save()
+    }
+    
   }
   
   @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
@@ -231,11 +270,26 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      if searchBar.isActive() {
-        _ = indexPath.section == 0 ? typedPlaces.remove(at: indexPath.row) : nearbyPlaces.remove(at: indexPath.row)
-      } else {
-        _ = userPlaces.remove(at: indexPath.row)
+      let removedPlace = userPlaces.remove(at: indexPath.row)
+      
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let managedContext = appDelegate.persistentContainer.viewContext
+      
+      let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PlaceObject")
+      if let results = try? managedContext.fetch(fetchRequest) {
+        for placeObject in results {
+          if placeObject.value(forKey: "name") as! String == removedPlace.name {
+            managedContext.delete(placeObject)
+            do {
+              try managedContext.save()
+            } catch {
+              print(error.localizedDescription)
+            }
+            break
+          }
+        }
       }
+      
       tableView.reloadData()
     }
   }
@@ -416,7 +470,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func sortPlacesByDistance() {
     typedPlaces.sort { $0.distance < $1.distance }
     nearbyPlaces.sort { $0.distance < $1.distance }
-    userPlaces.sort { $0.distance < $1.distance }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -456,7 +509,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func didCreatePlace(_ place: Place) {
     userPlaces.append(place)
-    sortPlacesByDistance()
   }
   
   @IBAction func toggleMapType(_ sender: Any) {
@@ -467,6 +519,44 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       mapView.mapType = .standard
       mapTypeButton.backgroundColor = placesView.backgroundColor
     }
+  }
+  
+  func save() {
+    
+    guard let appDelegate =
+      UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+      appDelegate.persistentContainer.viewContext
+    
+    let entity =
+      NSEntityDescription.entity(forEntityName: "PlaceObject",
+                                 in: managedContext)!
+    
+    let placeObject = NSManagedObject(entity: entity,
+                                      insertInto: managedContext)
+    _ = userPlaces.map {
+      placeObject.setValue($0.name, forKeyPath: "name")
+      placeObject.setValue($0.distance, forKeyPath: "distance")
+      placeObject.setValue($0.coordinate.latitude, forKeyPath: "latitude")
+      placeObject.setValue($0.coordinate.longitude, forKeyPath: "longitude")
+      placeObject.setValue($0.address, forKey: "address")
+      
+      let dataImage = UIImagePNGRepresentation($0.photo)
+      placeObject.setValue(dataImage, forKey: "photo")
+    }
+    
+    do {
+      try managedContext.save()
+    } catch let error as NSError {
+      print("Could not save. \(error), \(error.userInfo)")
+    }
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
   
 }
