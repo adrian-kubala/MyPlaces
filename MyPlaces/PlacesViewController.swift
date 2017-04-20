@@ -105,7 +105,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
   }
   
-  func didEditPlace() {
+  func didEditPlace(_ place: Place) {
     placesView.reloadData()
   }
   

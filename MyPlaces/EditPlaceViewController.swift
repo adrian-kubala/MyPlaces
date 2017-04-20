@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
@@ -101,11 +102,35 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
       return
     }
     
+    let oldName = place.name
+    
     place.name = placeNameTextField.text!
     place.photo = placeImageView.image!
     
-    delegate?.didEditPlace()
+    delegate?.didEditPlace(place)
+    
+    updateRecord(oldName)
+    
     _ = navigationController?.popViewController(animated: true)
+  }
+
+  func updateRecord(_ oldName: String) {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceObject")
+    let predicate = NSPredicate(format: "name = %@", oldName)
+    request.predicate = predicate
+    
+    let results = try! managedContext.fetch(request) as! [NSManagedObject]
+    let placeToUpdate = results[0]
+    
+    placeToUpdate.setValue(place.name, forKey: "name")
+    let photoData = UIImagePNGRepresentation(place.photo)
+    placeToUpdate.setValue(photoData, forKey: "photo")
+    
+    try! managedContext.save()
   }
   
 }
