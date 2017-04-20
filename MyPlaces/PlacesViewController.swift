@@ -358,7 +358,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     searchBar.resignFirstResponder()
     
-    self.searchBar.changeSearchIcon()
     resizeTable()
     self.searchBar.updateSearchText(currentAddress)
     typedPlaces.removeAll()
