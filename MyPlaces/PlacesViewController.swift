@@ -233,7 +233,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if searchBar.isActive() {
+    if placesViewTopConstraint.constant != 0 {
       return section == 0 ? "Results" : "Nearby places"
     } else {
       return "My places"
