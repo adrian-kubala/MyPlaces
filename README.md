@@ -11,7 +11,7 @@ An iOS app that allows to add your own places from the map to the table. Also, y
 
 * [Adrian Kubała](https://github.com/adrian-kubala)
 
-## Acknowledgments
+## Credits
 
 ### Graphics provided by:
 
