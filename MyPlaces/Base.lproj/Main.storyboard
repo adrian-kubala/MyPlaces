@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Or-zg-gAr">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Or-zg-gAr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -27,6 +27,19 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wue-zY-o69" customClass="CustomMapView" customModule="MyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="103" width="375" height="200"/>
                             </mapView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoE-4j-oXk" userLabel="Map Type Button">
+                                <rect key="frame" x="331" y="261" width="27" height="27"/>
+                                <color key="backgroundColor" red="0.89710962772369385" green="0.90125763416290283" blue="0.89721816778182983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="jc6-2Z-Jx5"/>
+                                    <constraint firstAttribute="height" constant="27" id="uPe-6V-JZc"/>
+                                </constraints>
+                                <state key="normal" image="map-type"/>
+                                <connections>
+                                    <action selector="centerMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUn-CX-DpC"/>
+                                    <action selector="toggleMapType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O51-14-AXK"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvh-QF-ahZ">
                                 <rect key="frame" x="17" y="261" width="27" height="27"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -69,15 +82,15 @@
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="RV9-W1-ZoG" userLabel="Blank View">
-                                    <rect key="frame" x="0.0" y="124" width="375" height="6"/>
+                                    <rect key="frame" x="0.0" y="123.5" width="375" height="6"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeView" rowHeight="50" id="yNA-yO-VkB" customClass="PlaceView" customModule="MyPlaces" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNA-yO-VkB" id="u2L-8l-fkg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So8-85-PNk">
@@ -132,6 +145,7 @@
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oou-t2-KuA" customClass="CustomSearchBar" customModule="MyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="375" height="44"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.87058823529411766" green="0.8784313725490196" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
@@ -149,6 +163,7 @@
                         <color key="backgroundColor" red="0.81176470588235294" green="0.99607843137254903" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Lvh-QF-ahZ" firstAttribute="bottom" secondItem="wue-zY-o69" secondAttribute="bottom" constant="-15" id="2ln-9W-rcl"/>
+                            <constraint firstItem="GoE-4j-oXk" firstAttribute="trailing" secondItem="wue-zY-o69" secondAttribute="trailing" constant="-17" id="8Aq-uU-aJH"/>
                             <constraint firstItem="Qa8-dh-IDV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="338" id="AYG-YJ-Vg5"/>
                             <constraint firstAttribute="trailing" secondItem="Qa8-dh-IDV" secondAttribute="trailing" id="DQu-xU-xAX"/>
                             <constraint firstItem="qVQ-Of-Vd5" firstAttribute="top" secondItem="wue-zY-o69" secondAttribute="bottom" id="HOn-Bs-qP1"/>
@@ -166,6 +181,7 @@
                             <constraint firstAttribute="trailing" secondItem="qVQ-Of-Vd5" secondAttribute="trailing" id="g0x-wn-DM1"/>
                             <constraint firstItem="Lvh-QF-ahZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="17" id="kSu-bF-Y8h"/>
                             <constraint firstItem="Oou-t2-KuA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-5" id="lSW-Tt-jBD"/>
+                            <constraint firstItem="GoE-4j-oXk" firstAttribute="bottom" secondItem="wue-zY-o69" secondAttribute="bottom" constant="-15" id="mhd-DJ-Gu6"/>
                             <constraint firstItem="wue-zY-o69" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="pnb-ds-SD1"/>
                             <constraint firstItem="Oou-t2-KuA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ud8-c8-PBe"/>
                             <constraint firstItem="wue-zY-o69" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w0k-kh-tHT"/>
@@ -182,6 +198,7 @@
                     <connections>
                         <outlet property="centerLocationButton" destination="Lvh-QF-ahZ" id="apN-6i-DKT"/>
                         <outlet property="emptyUserPlacesLabel" destination="iQA-wa-tPA" id="Y6o-CF-mgf"/>
+                        <outlet property="mapTypeButton" destination="GoE-4j-oXk" id="CFp-wR-oyT"/>
                         <outlet property="mapView" destination="wue-zY-o69" id="Mgd-1k-0M5"/>
                         <outlet property="placesView" destination="Qa8-dh-IDV" id="5eg-BS-Yfk"/>
                         <outlet property="placesViewTopConstraint" destination="S2Z-s9-vWY" id="U05-Tp-t76"/>
@@ -222,7 +239,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kF4-sK-fN1">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="Jf4-ed-zVx" userLabel="Place Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="Jf4-ed-zVx" userLabel="Place Image View">
                                         <rect key="frame" x="40" y="70" width="295" height="295"/>
                                         <color key="backgroundColor" red="0.87058823529999996" green="0.87843137250000003" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -477,7 +494,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -495,6 +512,7 @@
     </scenes>
     <resources>
         <image name="loc-current" width="20" height="20"/>
+        <image name="map-type" width="20" height="20"/>
         <image name="photo-camera" width="335" height="335"/>
     </resources>
     <color key="tintColor" red="0.81960784313725488" green="0.99607843137254903" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>

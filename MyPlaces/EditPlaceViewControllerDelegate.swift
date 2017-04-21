@@ -10,6 +10,6 @@ import Foundation
 
 protocol EditPlaceViewControllerDelegate: class {
   
-  func didEditPlace()
+  func didEditPlace(_ place: Place)
   
 }

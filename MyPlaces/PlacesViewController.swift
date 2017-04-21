@@ -7,6 +7,7 @@
 
 import GooglePlaces
 import MapKit
+import CoreData
 
 class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MKMapViewDelegate, CreatorViewControllerDelegate, EditPlaceViewControllerDelegate {
   @IBOutlet weak var searchBar: CustomSearchBar!
@@ -14,6 +15,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   @IBOutlet weak var placesView: UITableView!
   @IBOutlet weak var centerLocationButton: UIButton!
   @IBOutlet weak var emptyUserPlacesLabel: UILabel!
+  @IBOutlet weak var mapTypeButton: UIButton!
   
   @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
@@ -44,7 +46,46 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     setupPlacesClient()
     setupTableView()
     setupSearchBar()
-    showNearbyPlaces()
+    
+    
+    guard let appDelegate =
+      UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+      appDelegate.persistentContainer.viewContext
+    
+    let fetchRequest =
+      NSFetchRequest<NSManagedObject>(entityName: "PlaceObject")
+    
+    do {
+      let placeObjects = try managedContext.fetch(fetchRequest)
+      userPlaces = placeObjects.map { (object) -> Place in
+        let name = object.value(forKey: "name") as! String
+        let address = object.value(forKey: "address") as? String
+        let distance = object.value(forKey: "distance") as! Int
+        
+        
+        let latitude = object.value(forKey: "latitude") as! Double
+        let longitude = object.value(forKey: "longitude") as! Double
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let dataPhoto = object.value(forKey: "photo") as! Data
+        let photo = UIImage(data: dataPhoto)
+        
+        let userPlace = Place(name: name, address: address, coordinate: coordinate, photo: photo!, userLocation: userLocation)
+        userPlace.distance = distance
+        return userPlace
+      }
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+    
+    NotificationCenter.default.addObserver(forName: Notification.Name("AddressDidObtain"), object: nil, queue: nil) { [unowned self] notification in
+      self.save()
+    }
+    
   }
   
   @IBAction func editPlace(_ sender: UILongPressGestureRecognizer) {
@@ -65,7 +106,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
   }
   
-  func didEditPlace() {
+  func didEditPlace(_ place: Place) {
     placesView.reloadData()
   }
   
@@ -77,6 +118,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func setupMapView() {
     mapView.delegate = self
     centerLocationButton.layer.cornerRadius = 5
+    mapTypeButton.layer.cornerRadius = 5
   }
   
   func setupPlacesClient() {
@@ -95,7 +137,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     self.mapView.setupMapRegion(locations.last!)
     setupGeocoder(locations.last!)
-
+    
     locationManager.stopUpdatingLocation()
   }
   
@@ -104,6 +146,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     case .denied, .notDetermined, .restricted:
       print("Authorization error")
     default:
+      showNearbyPlaces()
       locationManager.startUpdatingLocation()
     }
   }
@@ -116,7 +159,10 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   func setupGeocoder(_ location: CLLocation) {
     location.coordinate.formattedAddress { (address) in
       self.currentAddress = address ?? "Current address"
-      self.searchBar.text = address
+      
+      if !self.searchBar.isActive() {
+          self.searchBar.text = address
+      }
     }
   }
   
@@ -151,7 +197,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
     
     self.mapView.showAnnotation()
-    self.mapView.setupMapRegionWithCoordinate(center)
     searchBar.setupSearchIcon()
     centerLocationButton.isHidden = false
     
@@ -188,7 +233,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if searchBar.isActive() {
+    if placesViewTopConstraint.constant != 0 {
       return section == 0 ? "Results" : "Nearby places"
     } else {
       return "My places"
@@ -206,6 +251,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   // MARK: UITableViewDelegate
   
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    if searchBar.isActive() {
+      searchBar.resignFirstResponder()
+    }
+  }
+  
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 35
   }
@@ -218,16 +269,32 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     mapView.setupMapRegionWithCoordinate(coordinate)
     currentAddress = address!
     clearSearchBarText()
+    searchBar.resignFirstResponder()
     resizeTable()
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      if searchBar.isActive() {
-        _ = indexPath.section == 0 ? typedPlaces.remove(at: indexPath.row) : nearbyPlaces.remove(at: indexPath.row)
-      } else {
-        _ = userPlaces.remove(at: indexPath.row)
+      let removedPlace = userPlaces.remove(at: indexPath.row)
+      
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let managedContext = appDelegate.persistentContainer.viewContext
+      
+      let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PlaceObject")
+      if let results = try? managedContext.fetch(fetchRequest) {
+        for placeObject in results {
+          if placeObject.value(forKey: "name") as! String == removedPlace.name {
+            managedContext.delete(placeObject)
+            do {
+              try managedContext.save()
+            } catch {
+              print(error.localizedDescription)
+            }
+            break
+          }
+        }
       }
+      
       tableView.reloadData()
     }
   }
@@ -244,6 +311,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     }
     
     mapView.setupMapRegion(userLocation)
+    setupGeocoder(userLocation)
     centerLocationButton.isHidden = true
   }
   
@@ -262,6 +330,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   // MARK: - UISearchBarDelegate
+  
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     requestTimer.invalidate()
     requestTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlacesViewController.makeRequestForPlaces), userInfo: nil, repeats: false)
@@ -271,29 +340,29 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     self.searchBar.changeSearchIcon()
     resizeTable()
     searchBar.text?.removeAll()
+    searchBar.setShowsCancelButton(true, animated: true)
   }
   
   func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-    if self.searchBar.isActive() {
-      searchBar.resignFirstResponder()
-      return true
-    }
-    return false
+    return self.searchBar.isActive()
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    guard let isEmpty = searchBar.text?.isEmpty, isEmpty else {
-      return
+    if searchBar.text?.isEmpty ?? true {
+      searchBar.text = " "
     }
-    
-    self.searchBar.changeSearchIcon()
-    resizeTable()
-    self.searchBar.updateSearchText(currentAddress)
-    typedPlaces.removeAll()
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     searchBar.resignFirstResponder()
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
+    
+    resizeTable()
+    self.searchBar.updateSearchText(currentAddress)
+    typedPlaces.removeAll()
   }
   
   func makeRequestForPlaces() {
@@ -403,15 +472,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func sortPlacesByDistance() {
-    if searchBar.isActive() {
-      typedPlaces.sort {
-        $0.distance < $1.distance
-      }
-    } else {
-      nearbyPlaces.sort {
-        $0.distance < $1.distance
-      }
-    }
+    typedPlaces.sort { $0.distance < $1.distance }
+    nearbyPlaces.sort { $0.distance < $1.distance }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -429,6 +491,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       if userPlaces.isEmpty {
         emptyUserPlacesLabel.isHidden = false
       }
+      searchBar.setShowsCancelButton(false, animated: true)
     }
     placesView.reloadData()
     animateTableResizing()
@@ -450,6 +513,54 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   
   func didCreatePlace(_ place: Place) {
     userPlaces.append(place)
-    placesView.reloadData()
   }
+  
+  @IBAction func toggleMapType(_ sender: Any) {
+    if mapView.mapType == .standard {
+      mapView.mapType = .hybrid
+      mapTypeButton.backgroundColor = mapTypeButton.tintColor
+    } else {
+      mapView.mapType = .standard
+      mapTypeButton.backgroundColor = placesView.backgroundColor
+    }
+  }
+  
+  func save() {
+    
+    guard let appDelegate =
+      UIApplication.shared.delegate as? AppDelegate else {
+        return
+    }
+    
+    let managedContext =
+      appDelegate.persistentContainer.viewContext
+    
+    let entity =
+      NSEntityDescription.entity(forEntityName: "PlaceObject",
+                                 in: managedContext)!
+    
+    let placeObject = NSManagedObject(entity: entity,
+                                      insertInto: managedContext)
+    _ = userPlaces.map {
+      placeObject.setValue($0.name, forKeyPath: "name")
+      placeObject.setValue($0.distance, forKeyPath: "distance")
+      placeObject.setValue($0.coordinate.latitude, forKeyPath: "latitude")
+      placeObject.setValue($0.coordinate.longitude, forKeyPath: "longitude")
+      placeObject.setValue($0.address, forKey: "address")
+      
+      let dataImage = UIImagePNGRepresentation($0.photo)
+      placeObject.setValue(dataImage, forKey: "photo")
+    }
+    
+    do {
+      try managedContext.save()
+    } catch let error as NSError {
+      print("Could not save. \(error), \(error.userInfo)")
+    }
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
 }

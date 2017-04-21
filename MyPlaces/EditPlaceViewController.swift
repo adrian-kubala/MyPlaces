@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
@@ -25,9 +26,6 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
     
     placeNameTextField.text = place.name
     placeImageView.image = place.photo
-    if placeImageView.image == #imageLiteral(resourceName: "av-location") {
-      placeImageView.contentMode = .center
-    }
     setupSubviews()
   }
   
@@ -37,6 +35,20 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
     placeImageView.layer.cornerRadius = cornerRadius
     photoSourceControl.layer.cornerRadius = cornerRadius
     addPhotoButton.layer.cornerRadius = addPhotoButton.bounds.size.width / 2
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    changeContentModeIfNeeded()
+  }
+  
+  private func changeContentModeIfNeeded() {
+    if let placeImage = placeImageView.image, placeImage.size.width > placeImageView.bounds.size.width {
+      placeImageView.contentMode = .scaleAspectFill
+    } else {
+      placeImageView.contentMode = .center
+    }
   }
   
   @IBAction func addPicture(_ sender: Any) {
@@ -69,7 +81,6 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     placeImageView.image = originalImage
-    placeImageView.contentMode = .scaleAspectFill
     dismiss(animated: true, completion: nil)
   }
   
@@ -91,11 +102,35 @@ class EditPlaceViewController: UIViewController, UIImagePickerControllerDelegate
       return
     }
     
+    let oldName = place.name
+    
     place.name = placeNameTextField.text!
     place.photo = placeImageView.image!
     
-    delegate?.didEditPlace()
+    delegate?.didEditPlace(place)
+    
+    updateRecord(oldName)
+    
     _ = navigationController?.popViewController(animated: true)
+  }
+
+  func updateRecord(_ oldName: String) {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceObject")
+    let predicate = NSPredicate(format: "name = %@", oldName)
+    request.predicate = predicate
+    
+    let results = try! managedContext.fetch(request) as! [NSManagedObject]
+    let placeToUpdate = results[0]
+    
+    placeToUpdate.setValue(place.name, forKey: "name")
+    let photoData = UIImagePNGRepresentation(place.photo)
+    placeToUpdate.setValue(photoData, forKey: "photo")
+    
+    try! managedContext.save()
   }
   
 }
