@@ -64,7 +64,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       userPlaces = placeObjects.map { (object) -> Place in
         let name = object.value(forKey: "name") as! String
         let address = object.value(forKey: "address") as? String
-        _ = object.value(forKey: "distance") as! Int
+        let distance = object.value(forKey: "distance") as! Int
         
         
         let latitude = object.value(forKey: "latitude") as! Double
@@ -74,7 +74,9 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
         let dataPhoto = object.value(forKey: "photo") as! Data
         let photo = UIImage(data: dataPhoto)
         
-        return Place(name: name, address: address, coordinate: coordinate, photo: photo!, userLocation: userLocation)
+        let userPlace = Place(name: name, address: address, coordinate: coordinate, photo: photo!, userLocation: userLocation)
+        userPlace.distance = distance
+        return userPlace
       }
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
@@ -231,7 +233,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if searchBar.isActive() {
+    if placesViewTopConstraint.constant != 0 {
       return section == 0 ? "Results" : "Nearby places"
     } else {
       return "My places"
