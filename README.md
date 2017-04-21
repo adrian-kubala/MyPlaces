@@ -15,8 +15,8 @@ An iOS app that allows to add your own places from the map to the table. Also, y
 
 ### Graphics provided by:
 
-* [Freepik](http://www.flaticon.com/authors/freepik) from www.flaticon.com
-* [Google](http://www.flaticon.com/authors/google) from www.flaticon.com
+* [Freepik](http://www.freepik.com) from www.flaticon.com
+* [Google](http://www.google.com) from www.flaticon.com
 
 ## License
 
