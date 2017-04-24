@@ -17,6 +17,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   @IBOutlet weak var emptyUserPlacesLabel: UILabel!
   @IBOutlet weak var mapTypeButton: UIButton!
   
+  @IBOutlet weak var addPlaceButton: CustomButton!
   @IBOutlet weak var placesViewTopConstraint: NSLayoutConstraint!
   
   var locationManager = CLLocationManager()
@@ -486,11 +487,13 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
     if searchBar.isActive() {
       placesViewTopConstraint.constant -= placesView.frame.origin.y - searchBar.frame.maxY
       emptyUserPlacesLabel.isHidden = true
+      addPlaceButton.isHidden = true
     } else {
-      placesViewTopConstraint.constant = 0
+      placesViewTopConstraint.constant = -5
       if userPlaces.isEmpty {
         emptyUserPlacesLabel.isHidden = false
       }
+      addPlaceButton.isHidden = false
       searchBar.setShowsCancelButton(false, animated: true)
     }
     placesView.reloadData()

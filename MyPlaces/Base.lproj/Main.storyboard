@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Or-zg-gAr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Or-zg-gAr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -52,29 +52,8 @@
                                     <action selector="centerMapView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FUO-8r-CGy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-Of-Vd5" customClass="CustomButton" customModule="MyPlaces" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="303" width="375" height="61"/>
-                                <color key="backgroundColor" red="0.87450980392156863" green="0.8784313725490196" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="7Uq-xg-quv"/>
-                                    <constraint firstAttribute="height" constant="53" id="c3J-J2-wl5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="ADD YOUR PLACE">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="c3J-J2-wl5"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="x5Q-fJ-pGt" kind="show" identifier="showCreatorVC" id="wjx-op-Sf0"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-dh-IDV">
-                                <rect key="frame" x="0.0" y="364" width="375" height="303"/>
+                                <rect key="frame" x="0.0" y="359" width="375" height="308"/>
                                 <color key="backgroundColor" red="0.87589908559577678" green="0.87589908559577678" blue="0.87589908559577678" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -87,10 +66,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeView" rowHeight="50" id="yNA-yO-VkB" customClass="PlaceView" customModule="MyPlaces" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNA-yO-VkB" id="u2L-8l-fkg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So8-85-PNk">
@@ -143,6 +122,26 @@
                                     <outletCollection property="gestureRecognizers" destination="K0K-kT-pam" appends="YES" id="OpB-kH-pup"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVQ-Of-Vd5" customClass="CustomButton" customModule="MyPlaces" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="303" width="375" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="7Uq-xg-quv"/>
+                                    <constraint firstAttribute="height" constant="53" id="c3J-J2-wl5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="ADD YOUR PLACE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="c3J-J2-wl5"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="x5Q-fJ-pGt" kind="show" identifier="showCreatorVC" id="wjx-op-Sf0"/>
+                                </connections>
+                            </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oou-t2-KuA" customClass="CustomSearchBar" customModule="MyPlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="375" height="44"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -150,7 +149,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No places have been added yet" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQA-wa-tPA" userLabel="Empty User Places Label">
-                                <rect key="frame" x="112.5" y="488" width="150" height="56"/>
+                                <rect key="frame" x="112.5" y="485.5" width="150" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56.5" id="P88-4q-E7f"/>
                                     <constraint firstAttribute="width" secondItem="iQA-wa-tPA" secondAttribute="height" multiplier="75:28" id="YXj-Kh-8fs"/>
@@ -174,7 +173,7 @@
                             <constraint firstItem="iQA-wa-tPA" firstAttribute="centerY" secondItem="Qa8-dh-IDV" secondAttribute="centerY" id="Q9O-mt-a6o"/>
                             <constraint firstAttribute="trailing" secondItem="wue-zY-o69" secondAttribute="trailing" id="QC0-IW-SId"/>
                             <constraint firstItem="wue-zY-o69" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="28" id="RRh-x4-HRg"/>
-                            <constraint firstItem="Qa8-dh-IDV" firstAttribute="top" secondItem="qVQ-Of-Vd5" secondAttribute="bottom" id="S2Z-s9-vWY"/>
+                            <constraint firstItem="Qa8-dh-IDV" firstAttribute="top" secondItem="qVQ-Of-Vd5" secondAttribute="bottom" constant="-5" id="S2Z-s9-vWY"/>
                             <constraint firstItem="Qa8-dh-IDV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V8d-Ta-JM9"/>
                             <constraint firstAttribute="trailing" secondItem="Oou-t2-KuA" secondAttribute="trailing" id="WSQ-lJ-NGq"/>
                             <constraint firstItem="qVQ-Of-Vd5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="375:667" id="Xj3-kp-ruc"/>
@@ -196,6 +195,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="BROWSE PLACES" id="rCD-Mo-kGN" customClass="CustomNavigationitem" customModule="MyPlaces" customModuleProvider="target"/>
                     <connections>
+                        <outlet property="addPlaceButton" destination="qVQ-Of-Vd5" id="2ny-P8-pDJ"/>
                         <outlet property="centerLocationButton" destination="Lvh-QF-ahZ" id="apN-6i-DKT"/>
                         <outlet property="emptyUserPlacesLabel" destination="iQA-wa-tPA" id="Y6o-CF-mgf"/>
                         <outlet property="mapTypeButton" destination="GoE-4j-oXk" id="CFp-wR-oyT"/>
@@ -494,7 +494,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Or-zg-gAr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ujx-R7-72S" customClass="CustomNavigationBar" customModule="MyPlaces" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
