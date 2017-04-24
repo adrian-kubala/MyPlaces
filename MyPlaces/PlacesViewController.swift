@@ -519,6 +519,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
   }
   
   @IBAction func toggleMapType(_ sender: Any) {
+    let center = mapView.centerCoordinate
+    
     if mapView.mapType == .standard {
       mapView.mapType = .hybrid
       mapTypeButton.backgroundColor = mapTypeButton.tintColor
@@ -526,6 +528,8 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, UITable
       mapView.mapType = .standard
       mapTypeButton.backgroundColor = placesView.backgroundColor
     }
+    
+    mapView.setupMapRegionWithCoordinate(center)
   }
   
   func save() {
